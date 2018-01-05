@@ -1,0 +1,102 @@
+{% extends "blog_base.html" %}
+{% load comments %}
+
+{% block title %} blog list {% endblock %}
+
+{% block article %}
+<article class='content-main'>
+    {% for blog in blogs %}     
+        <h4><a href="{% url 'detailblog' blog.id %}">{{ blog.caption }}</a></h4>
+        <p class="muted">  
+            {% for tag in blog.tags.all %}
+                <i class="icon-tag"></i>  <small>分类标签：{{ tag }}</small>
+            {% endfor %}
+        </p>  
+        {% load markup %}
+        {# 过滤掉HTML标签和处理HTML转义，输出前100个字符 #}
+        <div>{{ blog.content|markdown:'codehilite'|striptags|safe|truncatechars:100 }} </div> 
+
+        <div class="row-fluid">
+            <div class="span3">
+                <p class="muted"><i class="icon-time"></i><small>发布时间：{{ blog.publish_time }}</small></p>       
+            </div>
+            <div class="span3">
+                <p class="muted"><i class="icon-time"></i><small>阅读：({{ blog.read_num }})</small></p>       
+            </div>
+            <div class="span2 offset7">
+                <a href="{% url 'delblog' blog.id %}" title="delete"><i class="icon-trash"></i>删除</a>
+                <a href="{% url 'updateblog' blog.id %}" title="edit"><i class="icon-edit"></i>编辑</a>
+                {% get_comment_count for blog as comment_count %}
+                <a href="{% url 'detailblog' blog.id %}#cmt" title="comment"><i class=" icon-comment"></i>评论：({{ comment_count }})</a>
+            </div>
+        </div>            
+    <hr>         
+    {% endfor %} 
+
+<div>
+    <span class="blog_footer_tip">
+        共{{pages.count}}篇博文。当前第{{blogs.number}}页，共{{pages.num_pages}}页
+    </span>
+    
+    <ul class="pagination">
+        {# 上一页，这里需要用到has_previous方法判断是否有上一页 #}
+        <li>
+            <a href="?page=
+                {% if blogs.has_previous %}
+                    {{blogs.previous_page_number}}
+                {% else %}
+                    {{blogs.number}}
+                {% endif %}
+            " aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+ 
+        {# 遍历所有页码 #}
+        {% for page in pages.page_range %}
+            <li><a href="?page={{page}}">{{page}}</a></li>
+        {% endfor %}
+ 
+        {# 下一页，这里需要用到has_next方法判断是否有下一页 #}
+        <li>
+            <a href="?page=
+                {% if blogs.has_next %}
+                    {{blogs.next_page_number}}
+                {% else %}
+                    {{blogs.number}}
+                {% endif %}
+            " aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+    </ul>
+</div>
+ 
+{% block extra_footer %}
+    {#设置凸显当前的页码#}
+    <script type="text/javascript">
+        $(".pagination li:eq({{blogs.number}})").addClass("active");
+    </script>
+{% endblock %}
+
+</article>  
+{% endblock %}
+
+{% block aside %}
+    {% block twitter %}
+        <div id="weibo" class="well">
+            {% for weibo in weibos %}
+                <p class="text-info">回复：{{ weibo }}</p>                
+                <p class="text-success"><small>回复时间：{{ weibo.publish_time }}</small></p>
+                <hr class="soften">
+            {% endfor %}
+        </div>
+    {% endblock %}
+    {% block tags %}
+        <div class="well">
+            {% for tag in tags %}
+            <span class="label"><a href="{% url 'filtrblog' tag.id %}">{{ tag }}</a></span>
+            {% endfor %}
+        </div>
+    {% endblock %}
+{% endblock %}

@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+
+{% block title %} 博客 {% endblock title %}
+
+{% block extra_head %}
+    <style>
+        body {
+            padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+        }
+        .row{
+            margin-left: 0;
+        }
+        #mark-prompt li{
+            list-style: none outside none;
+            padding: 10px 9px 3px 0;
+            float: left;
+        }
+    </style> 
+    {% block script %}
+        <script type="text/javascript">
+            function sendtwitter(){
+                $('#myModal form').submit(function(){
+                    $.ajax({
+                        type: "POST",
+                        data: $('#myModal form').serialize(),
+                        url: "{% url 'addmassage' %}",
+                        cache: false,
+                        dataType: "html",
+                        success: function(html, textStatus) {
+                            $('#weibo').replaceWith(html);
+                            $('#myModal').modal('hide');   
+                            $('#myModal form')[0].reset();                      
+                        },
+                        error: function (XMLHttpRequest, textStatus, errorThrown) {
+                            $('#comment_form form').replaceWith('Your comment was unable to be posted at this time.  We apologise for the inconvenience.');
+                        }
+                    });
+                    return false;
+                });
+            }
+            $(document).ready(function(){
+                sendtwitter();
+            })
+        </script>     
+    {% endblock %}
+
+    {% block showblogscript %}{% endblock %}
+    {% block otherscript %}{% endblock %}
+{% endblock %}   
+
+
+{% block header %}
+    {% block menu %}
+    <div class="navbar navbar-inverse">
+        <div class="navbar-inner">
+            <div class="container">  
+                <!-- <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+                <span class="sbrand">SimpleBlog</span> -->
+                <ul class="nav">
+                    <span class="active divider-vertical">           
+                        <a href="{% url 'bloglist' %}">
+                            <span class="new-wrapper">
+                                <i class="nav-home"></i>
+                                <i class="nav-new"></i>
+                            </span>
+                            博客首页
+                        </a>
+                    </span>
+                    <span>
+                        <a href="#">
+                            <span class="new-wrapper">
+                                <i class="nav-me"></i>
+                                <i class="nav-new"></i>
+                            </span>
+                            关于
+                        </a>
+                    </span>
+                    <span>
+                        <!-- <li class="divider-vertical"></li> -->
+                        <!-- <button class="btn btn-default " >Action</button> -->
+                        <span class="dropdown">
+                        <a href="#" class="dropdown-toggle myset" data-toggle="dropdown">
+                            <span class="new-wrapper">
+                                <i class="nav-session"></i>
+                                <i class="nav-new"></i>
+                            </span>其他
+                            <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{% url 'addblog' %}"><i class="icon-plus"></i> 添加blog </a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                            </ul>
+                        </span>
+                        <!-- <li class="divider-vertical"></li> -->
+                    </span>  
+                <span class="pull-right">
+                    <form class="navbar-search" method="get" action="{% url 'searchblog' %}">
+                        <input type="text" class="search-query" name="search" placeholder="搜索" required="required">
+                    </form>
+                        <!-- <a class="btn btn-info btn-tweet" href="#myModal" role="button" data-toggle="modal">
+                            <i class="nav-tweet">
+                                <span class="hide">撰写新推文</span>
+                            </i> 
+                        </a>  -->                            
+                </span>  
+                </ul>    
+            </div>                
+        </div>
+    </div> 
+
+
+    <div class="modal hide fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-header twitter-modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="myModalLabel">Modal header</h3>
+        </div>
+        <form action="" method="post">{% csrf_token %}
+        <div class="modal-body twitter-modal-body">
+            <textarea name="twitter" class="twitter" id="twitter" required="required"></textarea>
+        </div>
+        <div class="modal-footer twitter-modal-footer">
+            <button class="btn"  data-dismiss="modal" aria-hidden="true">关闭</button>
+            <button id="send" class="btn btn-primary" type="submit" name="submit" >保存</button>
+        </div>
+        </form>
+    </div>
+
+    {% endblock %}
+{% endblock %}
+    

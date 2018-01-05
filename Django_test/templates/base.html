@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title> {% block title %} 欢迎光临 {% endblock title %} - django学习</title>
+
+    <!-- css -->
+    <link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="static/css/bootstrap.min.css"> -->
+    <!-- <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"> -->
+    <!-- <link rel="stylesheet" href="static/css/pace.css"> -->
+    <!-- <link rel="stylesheet" href="static/css/custom.css"> -->
+
+    <!-- js -->
+    <!-- <script src="static/js/jquery-2.1.3.min.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+    <script src="static/js/pace.min.js"></script>
+    <script src="static/js/modernizr.custom.js"></script> -->
+   
+    <script src="http://apps.bdimg.com/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://apps.bdimg.com/libs/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+		{% block css %}
+		{% endblock css %}
+		{% block js %}
+		{% endblock js %}
+   		{% block extra_head %}
+            {% comment %}
+                我认为这是个非常有用的区块, 很多人已经以某种方式在使用了. 很多页面经常需要在 HTML 文档头添加些信息, 比如 RSS 源, Javascript, CSS, 以及别的应该放在文档头的信息. 你可以, 也很可能将会, 定义另外专门的区块 (比如前面的 title 区块) 来添加文档头的其它部分的信息.
+            {% endcomment %}
+    	{% endblock %}
+	</head>
+	<body>
+		<nav class="navbar navbar-default navbar-fixed-top" role="navigation"> 
+			<div>
+				<div>
+					<button type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span>新闻</span>
+					</button>
+                    <span><a href="/sblog/bloglist/">博客</a></span>                    
+					<span><a href="/">返回首页</a></span>
+				</div>
+
+				{% block collapse %}
+				{% endblock collapse %}
+
+
+    {% block body %}   
+        {% block header %}
+            {# 任何每个页面都可能修改的文本区域的页面 #}
+            {% block menu %}
+            {# 你的菜单 (导航栏) 应该包含在这个区块中. 它是针对站点级的导航, 不是 每个页面专属的导航菜单. #}
+            {% endblock %}
+        {% endblock %}        
+              
+    <div class="container">
+        {% block content %}
+            {# 这个区块用来放置页面正文内容. 任何页面正文内容都可能不一样. 它不 包含任何站点导航, 信息头, 页脚, 或其它任何属于 base 模板的东东. #}
+
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="span9">                            
+                        {% block article %}
+                            {% block article_title %}
+                                {% comment %}
+                                用来指定 content 区块的 "title". 比如 blog 的标题. 
+                                也可以用来 包含 content 内的导航 (译注: 比如提纲), 或其它类似的东东. 
+                                大致都是些 页面中并非主要内容的东东. 
+                                我不知道这个区块是否应该放到 content tag 内, 并且对应于前面建议的 content tag, 
+                                是不是还需要一个 main_content 区块.
+                                {% block [section]_menu %} {% block page_menu %}
+                                这是对应于之前建议的 menu 区块. 用来导航一个章节或页面.
+                                {% endcomment %}
+                            {% endblock %}
+                            {% block article_content %}{% endblock %}
+                        {% endblock %}
+                        
+                        {% block article_menu %} {% endblock %}
+                        {% block comments %} {% endblock %}
+                        </div>
+                        <div class="span2 offset1">
+                            {% block aside %}
+                                {% block addblog %}{% endblock %}
+                                {% block search %}{% endblock %}
+                                {% block tags %}{% endblock %}
+                            {% endblock %}
+                        </div>
+                    </div>
+                </div>
+            {% endblock %}
+        {% block footer %}
+        {# 任何每个页面都可能修改的文本区域的页脚 #}
+        <footer class="row clearfix" style="padding:20em 1em 1em;">
+          <div>
+           <div class="well well-sm">
+            <div style="text-align:center;">
+             <a href="/aboutus/disclaimer.html">免责声明</a> |
+             <a href="/aboutus/index.html">关于我们</a>
+            </div> 
+            <div>
+            本站非盈利站点，提供的内容仅用于个人学习及练习，我不能保证内容一定正确。通过使用本站进行学习随之而来的风险与本站无关。当使用本站时，代表您已接受了本站的使用条款和隐私条款。 版权所有，保留一切权利。所有内容仅供测试，是以学习知识和分享知识为目的，对任何法律问题及风险不承担任何责任。
+            </div>
+            <div style="padding-top:10px; text-align: center">
+              是用<a href="https://www.djangoproject.com/" target="_blank" rel="nofollow">Django</a>技术开发的站点，托管在<a href="http://bce.baidu.com/" target="_blank" rel="nofollow">百度开放云</a>平台<br>
+ 
+              Copyright &copy; 2017 Powered by python学习 All Rights Reserved.
+             <a href="http://www.miitbeian.gov.cn/" rel="nofollow" target="_blank">苏ICP备***号-1</a>
+            </div>
+           </div>
+          </div>
+        </footer>
+        <!-- <p>Thanks for visiting my site! </p> -->
+        {% endblock %}
+    {% endblock %}
+    </div>
+
+
+
+	</div>
+	</nav>
+
+
+    {% include "baidutongji.html" %}
+	</body>
+</html>

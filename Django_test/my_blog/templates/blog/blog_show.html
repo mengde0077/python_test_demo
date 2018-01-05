@@ -1,0 +1,44 @@
+{% extends "blog_base.html" %}
+
+{% block title %} {{ blog.caption }} {% endblock %}
+
+
+{% block content %}
+<div class="content">
+    <article class="content-main">
+    {% block article_title %}
+        <h2>{{ blog.caption }}</h2>
+    {% endblock %}
+    <p class="muted">
+        <i class="icon-user"></i><small>作者：{{ blog.author }}</small>  
+        <i class="icon-time"></i><small>发布时间：{{ blog.publish_time }}</small>
+    </p>
+        <section>
+        <div class="blog-content">
+            {% block article_content %}
+                {{ blog.content }}
+            {% endblock %} 
+        </div>
+    </section>
+    <section>
+        <div class="row-fluid post-info">
+            <div class="span3">
+                <p>  
+                    <i class="icon-tag"></i>
+                    {% for tag in blog.tags.all %}
+                         <small class="muted">标签：{{ tag }} </small>
+                    {% endfor %}
+                </p>  
+            </div>
+            <div class="span2 offset7">
+                <a href="{% url 'delblog' blog.id %}" title="delete"><i class="icon-trash">删除</i></a>
+                <a href="{% url 'updateblog' blog.id %}" title="edit"><i class="icon-edit">编辑</i></a>
+                <a href="#cmt" title="comment"><i class=" icon-comment"></i>评论</a>
+            </div>
+        </div>
+    <hr>
+    </section>    
+    </article>
+    <hr>
+</div>     
+{% endblock %}

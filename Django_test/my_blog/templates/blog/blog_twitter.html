@@ -1,0 +1,9 @@
+{% block twitter %}
+    <div id="weibo" class="well">
+        {% for weibo in weibos %}
+            <p class="text-info">回复：{{ weibo }}</p>                
+            <p class="text-success"><small>回复时间：{{ weibo.publish_time }}</small></p>
+            <hr class="soften">
+        {% endfor %}
+    </div>
+{% endblock %}
