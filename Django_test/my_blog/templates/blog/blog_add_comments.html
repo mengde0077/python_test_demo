@@ -1,39 +1,68 @@
 {% load comments %}
+<h4>新的评论</h4>
 {% get_comment_form for blog as blog_form %}
 <div id="comment_form">
-    <form class="form-horizontal" action="{% comment_form_target %}" method="post">
-        <fieldset>
-        {% csrf_token %}
-        {{ blog_form.object_pk }}
-        {{ blog_form.content_type }}
-        {{ blog_form.timestamp }}
-        {{ blog_form.site }}
-        {{ blog_form.submit_date }}
-        {{ blog_form.security_hash }}
-        <div class="control-group">
-            <label class="control-label" for="id_name">name: </label>
-            <div class="controls">
-                <input type="text" id="id_name" class="input-xlarge" name="name" placeholder="please enter name" required="required">
-            </div>
+<form id="comment_form" 
+      class="form-horizontal" 
+      action="{% comment_form_target %}" 
+      method="post"
+>
+    {% csrf_token %}
+ 
+    {# 必须的字段 #}
+    {{ blog_form.object_pk }}
+    {{ blog_form.content_type }}
+    {{ blog_form.timestamp }}
+    {{ blog_form.site }}
+    {{ blog_form.submit_date }}
+    {{ blog_form.security_hash }}
+ 
+    {# 用户名字段，这个后面会修改为登录用户评论，无需填这个 #}
+    <div class="control-group">
+        <label class="control-label" for="id_name">名称： </label>
+        <div class="controls">
+            <input type="text" 
+                   id="id_name" class="input-xlarge" name="name" 
+                   placeholder="请输入您的用户名" 
+                   value="{{ user.username }}" />
         </div>
-        <div class="control-group">
-            <label class="control-label" for="id_email">email: </label>
-            <div class="controls">
-                <input class="input-xlarge" id="id_email" type="email" name="email" placeholder="please enter email" required="required">
-            </div>
+    </div>
+ 
+    {# 邮箱地址字段 #}
+    <div class="control-group">
+        <label class="control-label" for="id_email">邮箱： </label>
+        <div class="controls">
+            <input type="email"
+                   id="id_email" class="input-xlarge" name="email" 
+                   placeholder="请输入您的邮箱地址" 
+                   value="{{ user.email }}" />
         </div>
-        <div class="control-group">
-            <label class="control-label" for="id_comment">comment: </label>
-            <div class="controls">
-                <textarea class="input-xlarge" id="id_comment" name="comment" placeholder="please enter comment" required="required"></textarea>
-            </div>
+    </div>
+ 
+    {# 评论内容 #}
+    <a name="newcomment" id="newcomment"></a>
+    <div class="control-group">
+        <label class="control-label" for="id_comment">评论： </label>
+        <div class="controls">
+            <textarea rows="6" 
+                      id="id_comment" class="input-xlarge comment" name="comment" 
+                      placeholder="请输入评论内容">
+            </textarea>
         </div>
-        <p style="display:none;"><label for="id_honeypot">如果你在该字段中输入任何内容，那么你的评论就会被视为垃圾评论。</label> <input type="text" name="honeypot" id="id_honeypot"></p>
+    </div>
+ 
+    {# 防垃圾评论 #}
+    <p style="display:none;">
+        <label for="id_honeypot">如果你在该字段中输入任何内容，你的评论就会被视为垃圾评论。</label>
+        <input type="text" name="honeypot" id="id_honeypot">
+    </p>
+ 
+    {# 表单按钮 #}
+    <div class="controls">
         <div class="form-actions">
-            <input class="btn btn-info" type="submit" name="submit" value="Post">
-            {# <input class="btn btn-info" type="submit" name="preview" value="Preview"> #}
-            <input type='hidden' name='next' value='/simpleblog/blog/{{ blog.id }}/commentshow/'/>
+            <input class="btn btn-info" id="submit_btn" type="submit" name="submit" value="提交"/>
+            <input type="hidden" name="next" value="{%url 'detailblog' blog.id%}"/>
         </div>
-        </fieldset>
-    </form> 
+    </div>
+ </form>
 </div>

@@ -41,14 +41,14 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django_comments',
     'markup_deprecated',
-
     'test_app',
     'DjangoUeditor',
     'my_blog',
 )
 SITE_ID = 1
 
-EACHPAGE_NUMBER =2
+EACHPAGE_NUMBER =5
+
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -144,10 +144,10 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # 公共的 static 文件，比如 jquery.js 可以放这里，这里面的文件夹不能包含 STATIC_ROOT
-# 关联根目录和 common_static 文件夹  不能生效
-# 2018-01-05 放置在 template目录下可以，
+# 关联根目录和 common_static 文件夹  ，需要注意引用的路径
+# 2018-01-05 放置在 template目录下可以，不过在 其他项目中不能引用
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "templates/static"),
+    os.path.join(BASE_DIR, "common_static"),
 )
 
 # upload folder

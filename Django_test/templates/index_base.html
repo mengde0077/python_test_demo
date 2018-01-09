@@ -1,0 +1,149 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title> {% block title %} 欢迎光临 - python {% endblock title %}学习</title>
+
+    <!-- meta -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {% block css %}
+    <!-- css -->
+    <link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="{% static 'css/pace.css' %}">
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+    {% endblock %}
+
+    {% block js %}
+    <!-- js -->
+    <script src="{% static 'js/jquery-2.1.3.min.js' %}"></script>
+    <script src="http://apps.bdimg.com/libs/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="{% static 'js/pace.min.js' %}"></script>
+    <script src="{% static 'js/modernizr.custom.js' %}"></script>
+    {% endblock %}
+
+</head>
+
+{% block body %}
+{% block body_id %}
+<body>
+{% endblock %}
+
+{% block container %}
+<div class="container">
+    <header id="site-header">
+        <div class="row">
+            {% block logo %}
+            <div class="col-md-4 col-sm-5 col-xs-8">
+                <div class="logo">
+                    <h1><a href="/"><b>Python</b> &amp; Django</a></h1>
+                </div>
+            </div>
+            {% endblock %}
+
+            <div class="col-md-8 col-sm-7 col-xs-4">
+                {% block menu %}
+                {# 网页 模式下的  菜单 #}
+                <nav class="main-nav" role="navigation">
+                    <div class="navbar-header">
+                        <button type="button" id="trigger-overlay" class="navbar-toggle">
+                            <span class="ion-navicon"></span>
+                        </button>
+                    </div>
+                    
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="cl-effect-11"><a href="/" data-hover="首页">首页</a></li>
+                            <li class="cl-effect-11"><a href="/news" data-hover="新闻">新闻</a></li>
+                            <li class="cl-effect-11"><a href="/sblog/bloglist/" data-hover="博客">博客</a></li>
+                            <li class="cl-effect-11"><a href="/about" data-hover="关于">关于</a></li>
+                            <li class="cl-effect-11"><a href="/contact" data-hover="联系">联系</a></li>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </nav>
+                {% endblock %}
+
+                {% block search %}
+                <div id="header-search-box">
+                    <a id="search-menu" href="#"><span id="search-icon" class="ion-ios-search-strong"></span></a>
+                    <div id="search-form" class="search-form">
+                        <form role="search" method="get" id="searchform" action="{% url 'searchblog' %}">
+                            <input name="wd" type="text" placeholder="搜索" class="form-control">
+                            <button type="submit"><span class="ion-ios-search-strong"></span></button>
+                        </form>
+                    </div>
+                </div>
+                {% endblock %}
+            </div>
+        </div>
+    </header>
+</div>
+<div class="copyrights">Collect from <a href="http://www.cssmoban.com/">网页模板</a></div>
+<div class="copyrights">Modified by <a href="http://zmrenwu.com/">追梦人物的博客</a></div>
+{% endblock %}
+
+
+
+
+
+
+
+{% block content-body %}
+{# 这个区块用来放置页面正文内容. 任何页面正文内容都可能不一样. 它不 包含任何站点导航, 信息头, 页脚, 或其它任何属于 base 模板的东东. #}
+<div class="content-body">
+    <div class="container">
+        <div class="row">
+
+            {% block content-main %}{% endblock %}
+
+            {% block aside %}{% endblock %}
+
+
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+
+
+
+{% block footer %}
+{# 任何每个页面都可能修改的文本区域的页脚 #}
+{% endblock %}
+
+
+{% block mobile_menu %}
+{# 手机模式时的 menu #}
+<div class="overlay overlay-hugeinc">
+    <button type="button" class="overlay-close"><span class="ion-ios-close-empty"></span></button>
+    <nav>
+        <ul>
+            <li><a href="/">首页</a></li>
+            <li><a href="/news">新闻</a></li>
+            <li><a href="/sblog/bloglist/">博客</a></li>
+            <li><a href="/single">博客明细</a></li>
+            <li><a href="/about">关于</a></li>
+            <li><a href="/contact">联系</a></li>
+        </ul>
+    </nav>
+</div>
+{% endblock %}
+
+<script src="{% static 'js/script.js' %}"></script>
+</body>
+{% endblock %}
+
+
+
+
+
+
+
+</html>
+
+{% block script %}
+{% endblock %}
+

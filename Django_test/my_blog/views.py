@@ -5,7 +5,10 @@ from helper.paginator import getPages  #导入helper文件夹的分页通用方�
 from models import Blog,Tag,Author,Weibo
 from forms import BlogForm,TagForm
 from django.core.paginator import Paginator
-from django.http import Http404,HttpResponseRedirect
+from django.http import Http404,HttpResponseRedirect,HttpResponse
+from django.template.context_processors import csrf
+from templatetags import gravatar
+# from django.views.decorators.csrf import csrf_exempt,csrf_protect
 
 def blog_list(request):
     # 倒序获取
@@ -19,14 +22,48 @@ def blog_list(request):
         context_instance=RequestContext(request))
 
 
+
 def blog_show(request, id=''):
     try:
+        data = {}
         blog = Blog.objects.get(id=id)
         blog.read_num += 1
         blog.save()
+        data['blog'] = blog
+
+        #previous blog （上一篇）
+        # sql = "select * from my_blog_blog where id>%s order by id limit 1" % (id)
+        # pre_blogs = Blog.objects.raw(sql)
+        # if len(list(pre_blogs))>0:
+        #     pre_blog = pre_blogs[0]
+        # else:
+        #     pre_blog = None
+        pre_blog = Blog.objects.filter(id__gt=blog.id).order_by("id")
+        if pre_blog.count() > 0:
+            pre_blog = pre_blog[0]
+        else:
+            pre_blog = None
+
+        #previous blog （上一篇）
+        # sql = "select * from my_blog_blog where id<%s order by id desc limit 1" % (id)
+        # next_blogs = Blog.objects.raw(sql)
+        # if len(list(next_blogs))>0:
+        #     next_blog = next_blogs[0]
+        # else:
+        #     next_blog = None
+        next_blog = Blog.objects.filter(id__lt=blog.id).order_by("-id")
+        if next_blog.count() > 0:
+            next_blog = next_blog[0]
+        else:
+            next_blog = None
+
+        data['pre_blog'] = pre_blog
+        data['next_blog'] = next_blog
+
     except Blog.DoesNotExist:
         raise Http404("没有这个帖子")
-    return render(request, 'blog/blog_show.html' ,{"blog": blog})
+    return render(request, 'blog/blog_show.html' ,data,
+        context_instance=RequestContext(request))
 
 def blog_filter(request, id=''):
     tags = Tag.objects.all()
@@ -40,7 +77,8 @@ def blog_show_comment(request, id=''):
     return render(request, 'blog/blog_comments_show.html', {"blog": blog})
 
 
-def blog_search(request):
+def blog_search_by_tag(request):
+    #按照 tag 搜索
     tags = Tag.objects.all()
     if 'search' in request.GET:
         search = request.GET['search']
@@ -51,6 +89,25 @@ def blog_search(request):
         blogs = Blog.objects.order_by('-id')
         return render(request, "blog/blog_list.html", {"blogs": blogs, "tags": tags},
             context_instance=RequestContext(request))
+
+def blog_search(request):
+    """show blogs' list"""
+    try:
+        wd=request.GET['wd']
+        if not wd:
+            return index(request)
+
+        blogs = Blog.objects.filter(caption__contains=wd)
+        paginator,blogs=getPages(request,blogs)
+
+        #return data
+        data = {}
+        data["blogs"]=blogs
+        data["paginator"]=paginator
+        data["wd"]=wd
+    except Exception:
+        raise Http404
+    return render(request,'blog/blog_search.html',data)
 
 
 def blog_add(request):
@@ -98,6 +155,8 @@ def add_weibo(request):
         context_instance=RequestContext(request))
     else:
         return HttpResponse('dddd')
+
+
 
 
 

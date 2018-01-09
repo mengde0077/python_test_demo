@@ -24,7 +24,8 @@ urlpatterns = [
     # name属性是给这个url起个别名，可以在模版中引用而不用担心urls文件中url的修改 引用方式为{% url blog_list %}
     url(r'^blog/(?P<id>\d+)/$', my_blog_views.blog_show, name='detailblog'),
     url(r'^blog/tag/(?P<id>\d+)/$', my_blog_views.blog_filter, name='filtrblog'),
-    url(r'^blog/search/$', my_blog_views.blog_search, name='searchblog'),
+    url(r'^blog/searchbytag/$', my_blog_views.blog_search_by_tag, name='searchbytag'),
+    url(r'^blog/searchblog/$', my_blog_views.blog_search, name='searchblog'),
     url(r'^blog/add/$', my_blog_views.blog_add, name='addblog'),
     url(r'^blog/(?P<id>\w+)/update/$', my_blog_views.blog_update, name='updateblog'),
     url(r'^blog/(?P<id>\w+)/del/$', my_blog_views.blog_del, name='delblog'),

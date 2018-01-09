@@ -1,44 +1,220 @@
 {% extends "blog_base.html" %}
+{% load comments %}
 
 {% block title %} {{ blog.caption }} {% endblock %}
 
 
-{% block content %}
-<div class="content">
+{% block content-body %}
+<div class="content-body">
     <article class="content-main">
     {% block article_title %}
         <h2>{{ blog.caption }}</h2>
     {% endblock %}
+    <p class="muted">  
+        {% for tag in blog.tags.all %}
+        <i class="post-category"></i>  <small>分类标签：{{ tag }}</small>
+        {% endfor %}
+    </p> 
     <p class="muted">
-        <i class="icon-user"></i><small>作者：{{ blog.author }}</small>  
-        <i class="icon-time"></i><small>发布时间：{{ blog.publish_time }}</small>
+        <span class="post-author"><a href="#">作者：{{ blog.author }}</a></span>
+        <span class="post-date"><a href="#"><time class="entry-date" datetime="2012-11-09T23:15:57+00:00">时间：{{ blog.publish_time|date:"Y-m-d H:i" }}</time></a></span>
+        <span class="post-read"><a href="#">{{ blog.read_num }}阅读</a></span>
+                                    {% get_comment_count for blog as comment_count %}
+        <span class="comments-link"><a href="#">{{ comment_count }}评论</a></span>
     </p>
-        <section>
+    <section>
         <div class="blog-content">
             {% block article_content %}
                 {{ blog.content }}
             {% endblock %} 
         </div>
     </section>
-    <section>
-        <div class="row-fluid post-info">
-            <div class="span3">
-                <p>  
-                    <i class="icon-tag"></i>
-                    {% for tag in blog.tags.all %}
-                         <small class="muted">标签：{{ tag }} </small>
-                    {% endfor %}
-                </p>  
-            </div>
-            <div class="span2 offset7">
+    <hr>
+    <p class="muted">  
                 <a href="{% url 'delblog' blog.id %}" title="delete"><i class="icon-trash">删除</i></a>
                 <a href="{% url 'updateblog' blog.id %}" title="edit"><i class="icon-edit">编辑</i></a>
-                <a href="#cmt" title="comment"><i class=" icon-comment"></i>评论</a>
-            </div>
-        </div>
-    <hr>
-    </section>    
+                <a href="{% url 'showcomment' blog.id %}" title="comment"><i class=" icon-comment"></i>评论</a>
+    </P>
     </article>
-    <hr>
-</div>     
+    </hr>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4>评论列表</h4>
+    </div>
+ 
+    <div class="panel-body">
+        {% get_comment_list for blog as comments %}
+        {% for comment in comments %}
+            <div class="blog_comment" name="F{{comment.id}}">
+                <p class="comment_title">
+                    #{{ comment.submit_date|date:"Y-m-d H:i"}} @ {{ comment.user_name }}：
+                </p>
+                <p class="comment_content">{{ comment.comment }}</p>
+            </div>            
+        {% empty %}
+            <span>暂无评论</span>
+        {% endfor %}
+    </div>
+</div>  
+
+
+<div class="panel panel-default">
+<h4>我有话说</h4>
+{% get_comment_form for blog as blog_form %}
+<div id="comment_form">
+<form id="comment_form" 
+      class="form-horizontal" 
+      action="{% comment_form_target %}" 
+      method="post"
+>
+    {% csrf_token %}
+ 
+    {# 必须的字段 #}
+    {{ blog_form.object_pk }}
+    {{ blog_form.content_type }}
+    {{ blog_form.timestamp }}
+    {{ blog_form.site }}
+    {{ blog_form.submit_date }}
+    {{ blog_form.security_hash }}
+ 
+    {# 用户名字段，这个后面会修改为登录用户评论，无需填这个 #}
+    <div class="control-group">
+        <label class="control-label" for="id_name">名称： </label>
+        <div class="controls">
+            <input type="text" 
+                   id="id_name" class="input-xlarge" name="name" 
+                   placeholder="请输入您的用户名" 
+                   value="{{ user.username }}" />
+        </div>
+    </div>
+ 
+    {# 邮箱地址字段 #}
+    <div class="control-group">
+        <label class="control-label" for="id_email">邮箱： </label>
+        <div class="controls">
+            <input type="email"
+                   id="id_email" class="input-xlarge" name="email" 
+                   placeholder="请输入您的邮箱地址" 
+                   value="{{ user.email }}" />
+        </div>
+    </div>
+ 
+    {# 评论内容 #}
+    <a name="newcomment" id="newcomment"></a>
+    <div class="control-group">
+        <label class="control-label" for="id_comment">评论： </label>
+        <div class="controls">
+            <textarea rows="6" 
+                      id="id_comment" class="input-xlarge comment" name="comment" 
+                      placeholder="请输入评论内容">
+            </textarea>
+        </div>
+    </div>
+ 
+    {# 防垃圾评论 #}
+    <p style="display:none;">
+        <label for="id_honeypot">如果你在该字段中输入任何内容，你的评论就会被视为垃圾评论。</label>
+        <input type="text" name="honeypot" id="id_honeypot">
+    </p>
+ 
+    {# 表单按钮 #}
+    <div class="controls">
+        <div class="form-actions">
+            <input class="btn btn-info" id="submit_btn" type="submit" name="submit" value="发布"/>
+            {# 作用是提交完表单后跳转的页面 #}
+            <input type="hidden" name="next" value="{%url 'detailblog' blog.id%}"/>
+        </div>
+    </div>
+ </form>
+</div>
+</div>  
+
+
+<div id="in_nav">
+<p>
+    {% if pre_blog %}
+        <a href="{% url 'detailblog' pre_blog.id %}" title="">上一篇：{{pre_blog.caption}}</a> 
+    {% else %}
+        上一篇：没有了
+    {% endif %}
+</p>
+<p>
+    {% if next_blog %}
+        <a href="{% url 'detailblog' next_blog.id %}" title="">下一篇：{{next_blog.caption}}</a> 
+    {% else %}
+        下一篇：没有了
+    {% endif %}
+</p>
+</div>
+
+{% endblock %}
+
+
+
+
+
+
+{% block script %}
+{# 设置提交评论 #}
+<script type="text/javascript" charset="utf-8">
+        $(document).ready(function() {
+        $('#comment_form').submit(function() {
+            if ($("#id_honeypot").val().length!=0) {
+                        alert("Stop!垃圾评论");
+                        return false;
+            };
+            if ($("#id_name").val().length==0) {
+                        alert("Error:请输入您的用户名");
+                        $("#id_name").focus();
+                        return false;
+            };
+            if ($("#id_email").val().length==0) {
+                        alert("Error:请输入您的邮箱地址");
+                        $("#id_email").focus();
+                        return false;
+            };
+ 
+            var email=$("#id_email").val();
+            if(!email.match(/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/)){
+                alert("Error:邮箱不正确！请重新输入");
+                $("#id_email").focus();
+                return false;
+            }
+ 
+            if ($("#id_comment").val().length==0){
+                alert("Error:请输入您的评论");
+                $("#id_comment").focus();
+                return false;
+            };
+ 
+            $("#id_timestamp").value=event.timeStamp;
+
+            function csrfSafeMethod(method) {
+                // these HTTP methods do not require CSRF protection
+                return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+            }
+            $.ajax({
+                beforeSend: function(xhr, settings) {
+                    if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                        xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                    }
+                },
+                type: "POST",
+                data: $('#comment_form').serialize(),
+                url: "{% comment_form_target %}",
+                cache: false,
+                dataType: "html",
+                success: function(html, textStatus) {
+                    window.location.reload();
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert("评论出错，" + errorThrown);
+                }
+            });
+            return false;
+            });
+        });
+</script> 
 {% endblock %}

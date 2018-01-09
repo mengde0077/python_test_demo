@@ -1,6 +1,7 @@
 {% extends "blog_base.html" %}
 
 {% block title %} 发布文字 {% endblock %}   
+
 {% block otherscript %}
     <script type="text/javascript">
         $(document).ready(function(){
@@ -9,18 +10,22 @@
     </script>
 {% endblock %}
 
+{% block content-body %}
 {% block article %} 
-{% comment %}
-{% if form.errors %}
-    <div class="alert alert-error">
-        Please correct the error {{ form.errors|pluralize }} below.
-    </div>
-{% endif %}
-{% endcomment %}
 
-<form action="" method="post">
+    {% comment %}
+    {% if form.errors %}
+        <div class="alert alert-error">
+            Please correct the error {{ form.errors|pluralize }} below.
+        </div>
+    {% endif %}
+    {% endcomment %}
+
+
+<h3>发布博客</h3>               
+<form action="" method="post" class="comment-form">
     {% csrf_token %} 
-    <div class="field">
+    <div class="col-md-4">
         <label for="id_caption">标题: </label>
         {% if form.caption.errors %}
         <div class="alert alert-error">
@@ -29,7 +34,7 @@
         {% endif %}
         {{ form.caption }}
     </div>
-    <div class="field">        
+    <div class="col-md-4">        
         <label for="id_content">内容: </label>
         {% if form.content.errors %}
         <div class="alert alert-error">
@@ -38,7 +43,7 @@
         {% endif %}
         {{ form.content }}
     </div>
-    <div class="field">
+    <div class="col-md-4">
         <label for="id_tag">标签: </label>
         {% if tag.tag_name.errors %}
         <div class="alert alert-error">
@@ -136,4 +141,5 @@
     </div>
 </div>
 </div>
+{% endblock %}
 {% endblock %}

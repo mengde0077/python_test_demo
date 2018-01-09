@@ -240,6 +240,7 @@ img {
     color: #000;
 }
 
+.post-read::after,
 .post-category::after,
 .post-date::after,
 .post-author::after,

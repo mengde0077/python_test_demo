@@ -1,37 +1,46 @@
 {% extends "blog_base.html" %}
 {% load comments %}
+{% load markup %}
 
-{% block title %} blog list {% endblock %}
 
-{% block article %}
-<article class='content-main'>
-    {% for blog in blogs %}     
-        <h4><a href="{% url 'detailblog' blog.id %}">{{ blog.caption }}</a></h4>
-        <p class="muted">  
-            {% for tag in blog.tags.all %}
-                <i class="icon-tag"></i>  <small>分类标签：{{ tag }}</small>
-            {% endfor %}
-        </p>  
-        {% load markup %}
-        {# 过滤掉HTML标签和处理HTML转义，输出前100个字符 #}
-        <div>{{ blog.content|markdown:'codehilite'|striptags|safe|truncatechars:100 }} </div> 
+{% block body_id %}
+    <body>
+{% endblock %}
 
-        <div class="row-fluid">
-            <div class="span3">
-                <p class="muted"><i class="icon-time"></i><small>发布时间：{{ blog.publish_time }}</small></p>       
-            </div>
-            <div class="span3">
-                <p class="muted"><i class="icon-time"></i><small>阅读：({{ blog.read_num }})</small></p>       
-            </div>
-            <div class="span2 offset7">
-                <a href="{% url 'delblog' blog.id %}" title="delete"><i class="icon-trash"></i>删除</a>
-                <a href="{% url 'updateblog' blog.id %}" title="edit"><i class="icon-edit"></i>编辑</a>
-                {% get_comment_count for blog as comment_count %}
-                <a href="{% url 'detailblog' blog.id %}#cmt" title="comment"><i class=" icon-comment"></i>评论：({{ comment_count }})</a>
-            </div>
-        </div>            
-    <hr>         
-    {% endfor %} 
+{% block content-body %}
+        <div class="content-body">
+            <div class="container">
+                {% block blog_header %}{% endblock %}
+                <div class="row">
+                    <main class="col-md-12">
+                    {% for blog in blogs %} 
+                        <article class="post post-1">
+                            <header class="entry-header">
+                                <h1 class="entry-title">
+                                    <a href="{% url 'detailblog' blog.id %}">{{ blog.caption }}</a>
+                                </h1>
+                                <div class="entry-meta">
+                                    <!-- <span class="post-category"><a href="#">Web Design</a></span> -->
+                                    <p class="muted">  
+                                        {% for tag in blog.tags.all %}
+                                        <i class="post-category"></i>  <small>分类标签：{{ tag }}</small>
+                                        {% endfor %}
+                                    </p> 
+                                    <span class="post-author"><a href="#">作者：{{ blog.author }}</a></span>
+                                    <span class="post-date"><a href="#"><time class="entry-date" datetime="2012-11-09 23:15">时间：{{ blog.publish_time|date:"Y-m-d H:i" }}</time></a></span>
+                                    <span class="post-read"><a href="#">{{ blog.read_num }}阅读</a></span>
+                                    {% get_comment_count for blog as comment_count %}
+                                    <span class="comments-link"><a href="#">{{ comment_count }}评论</a></span>
+                                </div>
+                            </header>
+                            <div class="entry-content clearfix">
+                                <p>{{ blog.content|markdown:'codehilite'|striptags|safe|truncatechars:100 }}</p>
+                                <div class="read-more cl-effect-14">
+                                    <a href="{% url 'detailblog' blog.id %}" class="more-link">继续阅读 <span class="meta-nav">→</span></a>
+                                </div>
+                            </div>
+                        </article>
+                        {% endfor %}
 
 <div>
     <span class="blog_footer_tip">
@@ -79,24 +88,8 @@
     </script>
 {% endblock %}
 
-</article>  
-{% endblock %}
-
-{% block aside %}
-    {% block twitter %}
-        <div id="weibo" class="well">
-            {% for weibo in weibos %}
-                <p class="text-info">回复：{{ weibo }}</p>                
-                <p class="text-success"><small>回复时间：{{ weibo.publish_time }}</small></p>
-                <hr class="soften">
-            {% endfor %}
+                    </main>
+                </div>
+            </div>
         </div>
-    {% endblock %}
-    {% block tags %}
-        <div class="well">
-            {% for tag in tags %}
-            <span class="label"><a href="{% url 'filtrblog' tag.id %}">{{ tag }}</a></span>
-            {% endfor %}
-        </div>
-    {% endblock %}
 {% endblock %}

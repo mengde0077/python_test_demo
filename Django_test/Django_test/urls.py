@@ -24,6 +24,10 @@ from django_comments import urls as django_comments_urls
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
+    url(r'^about$', views.about, name='about'),
+    url(r'^contact$', views.contact, name='contact'),
+    url(r'^single$', views.single, name='single'),
+    url(r'^baidutongji$', views.baidutongji, name='baidutongji'),
     url(r'^news$', test_app_views.news, name='news'),
     #注意include()函数的正则表达式的末尾没有$
     url(r'^sblog/', include(blog_urls)),

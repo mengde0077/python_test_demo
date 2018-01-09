@@ -1,7 +1,8 @@
 {% load comments %}
 {% load gravatar %}
 {% load markup %}
-<article id="cmt">
+<article id="cmt"
+    {# 取出该object(就是客户访问的blog)的评论数 #}
     {% get_comment_count for blog as comment_count %}    
         <h4 class="muted">{{ comment_count }} Comments</h4>
         <hr class="soften">  
