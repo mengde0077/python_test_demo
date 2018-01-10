@@ -1,0 +1,239 @@
+{% extends "page_base.html" %}
+
+{% block login %}
+<div class="col-md-6">
+	<ul id="user_part" class="nav navbar-nav navbar-right"></ul>
+</div>
+{% endblock %}
+
+
+{% block content-body %}
+		<div class="content-body">
+			<div class="container">
+				<div class="row">
+					<main class="col-md-12">
+						<h1 class="page-title">Contact</h1>
+						<article class="post">
+							<div class="entry-content clearfix">
+								<form action="#" method="post" class="contact-form">
+									<div class="row">
+										<div class="col-md-6 col-md-offset-3">
+											<input type="text" name="name" placeholder="Name" required>
+											<input type="email" name="email" placeholder="Email" required>
+											<input type="text" name="subject" placeholder="Subject" required>
+											<textarea name="message" rows="7" placeholder="Your Message" required></textarea>
+											<button class="btn-send btn-5 btn-5b ion-ios-paperplane"><span>Drop Me a Line</span></button>
+										</div>
+									</div>	<!-- row -->
+								</form>
+							</div>
+						</article>
+					</main>
+				</div>
+			</div>
+		</div>
+{% endblock %}
+
+
+
+{% block modal %}
+<!-- 登录模态框（Modal） -->
+<div style="display: none;" class="modal fade" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="LoginModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <form id="login_form" action="/user/user_login" method="POST">
+ 
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                          ×
+                    </button>
+                    <h4 class="modal-title" id="LoginModalLabel">
+                       登录 <small>是一种态度</small>
+                    </h4>
+                </div>
+ 
+                <div class="modal-body" style="text-align:center;">
+                    <div class="control-group">
+                        <label class="control-label" for="login_name">用户名：</label>
+                        <input id="login_name" class="input-xlarge" name="login_name" placeholder="请输入用户名" autocomplete="off" type="text">
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="login_pwd">密码：</label>
+                        <input id="login_pwd" class="input-xlarge" name="login_pwd" placeholder="请输入密码" autocomplete="off" type="password">
+                    </div>
+                    <p id="login_tip" style="color:red;"></p>
+                </div>
+ 
+                <div class="modal-footer">
+                    <input class="btn btn-primary" value="登录" type="submit">
+                    <input class="btn btn-default" data-dismiss="modal" value="关闭" type="button">
+                </div>
+            </form>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+ 
+<!-- 注册模态框（Modal） -->
+<div class="modal fade" id="RegModal" tabindex="-1" role="dialog" aria-labelledby="RegModalLabel" aria-hidden="true">
+   <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <form id="reg_form" action="#" method="POST">
+                
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                          ×
+                    </button>
+                    <h4 class="modal-title" id="RegModalLabel">
+                       注册 <small>是新的开始</small>
+                    </h4>
+                </div>
+ 
+                <div class="modal-body" style="text-align:center;">
+                    <div id="reg_control">
+                        <div class="control-group">
+                            <label class="control-label" for="reg_name">用户名：</label>
+                            <input id="reg_name" class="input-xlarge" name="reg_name" placeholder="请输入用户名" autocomplete="off" type="text">
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="reg_email">邮箱：</label>
+                            <input id="reg_email" class="input-xlarge" name="reg_email" placeholder="请输入邮箱" autocomplete="off" type="text">
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="reg_pwd">密码：</label>
+                            <input id="reg_pwd" class="input-xlarge" name="reg_pwd" placeholder="请输入密码" autocomplete="off" type="password">
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="reg_pwd">确认密码：</label>
+                            <input id="reg_pwd" class="input-xlarge" name="reg_pwd" placeholder="请输入确认密码" autocomplete="off" type="password">
+                        </div>                        
+                    </div>
+                    <p id="reg_tip" style="color:red;"></p>
+                </div>
+ 
+                <div class="modal-footer">
+                    <input class="btn btn-primary" value="注册" type="submit">
+                    <input class="btn btn-default" data-dismiss="modal" value="关闭" type="button">
+                </div>
+            </form>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+{% endblock %}
+
+
+{% block script %}
+//检查登录状态
+<script type="text/javascript" charset="utf-8">
+$.ajax({
+    type:"GET",
+    url:"{% url 'check_is_login' %}",
+    cache:false,
+    dataType:'text',
+    success:function(result){
+        $("#user_part").html(result);
+    },
+    error:function(XMLHttpRequest, textStatus, errorThrown){
+        //alert(textStatus);
+        $("#user_part").html('<li><a href="#" data-toggle="modal" data-target="#LoginModal">登录</a></li><li><a href="#" data-toggle="modal" data-target="#RegModal">注册</a></li>');
+    }
+});
+ 
+//登录
+$('#login_form').submit(function(){
+    //验证
+    var tip=$('#login_tip');
+    tip.text('');
+ 
+    if($('#login_name').val()==''){
+        tip.text('请输入用户名');
+        return false;
+    };
+    if($('#login_pwd').val()==''){
+        tip.text('请输入密码');
+        return false;
+    };
+ 
+    //登录
+    $('#login_csrf').val($.cookie('csrftoken'));
+    $.ajax({
+        type: "POST",
+        data: $('#login_form').serialize(),
+        url: "{% url 'user_login' %}",
+        cache: false,
+        dataType: "json",
+        success: function(json, textStatus){
+            var is_success = json['success'];
+            if(is_success){
+                tip.text('登录成功，页面处理中...');
+                window.location.reload();
+            }else{
+                tip.text('用户名或者密码错误，请重试');
+            };
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            tip.text("登录出错，请重试 "+errorThrown);
+        }
+    });
+    return false;
+});
+
+
+//注册
+$('#reg_form').submit(function(){
+    //验证
+    var tip=$('#reg_tip');
+    tip.text('');
+ 
+    var reg_name=$('#reg_name').val();
+    var reg_email=$('#reg_email').val();
+    var reg_pwd=$('#reg_pwd').val();
+ 
+    if(reg_name==''){
+        tip.text('用户名不能为空');
+        return false;
+    };
+    if(!reg_email.match(/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/)){
+        tip.text('请输入正确的邮箱格式');
+        return false;
+    }
+ 
+    if(reg_pwd==''){
+        tip.text('密码不能为空');
+        return false    ;
+    };
+    if(reg_pwd.length<6){
+        tip.text('密码不能少于6位');
+    }
+ 
+    //注册
+    tip.text('注册中，请稍后...');
+    $('#reg_csrf').val($.cookie('csrftoken'));
+    $.ajax({
+        type: "POST",
+        data: $('#reg_form').serialize(),
+        url: "{% url 'user_reg' %}",
+        cache: false,
+        dataType: "json",
+        success: function(json, textStatus){
+            var is_success = json['success'];
+            if(is_success){
+                tip.text('注册成功，页面处理中...');
+                $('#reg_control').text(json['message']);
+ 
+                window.setTimeout(function(){ 
+                    window.location.reload(); 
+                },3000);
+            }else{
+                tip.text(json['message']);
+            };
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            tip.text("注册出错，请重试 "+errorThrown);
+        }
+    });
+    return false;
+});
+
+
+</script>
+{% endblock %}

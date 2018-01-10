@@ -19,6 +19,7 @@ from DjangoUeditor import urls as DjangoUeditor_url
 from test_app import views as test_app_views
 import views
 from django.conf import settings
+from user_ex import urls as user_ex_urls
 from my_blog import urls as blog_urls
 from django_comments import urls as django_comments_urls
 
@@ -33,6 +34,7 @@ urlpatterns = [
     url(r'^sblog/', include(blog_urls)),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^ueditor/', include(DjangoUeditor_url)),
+    url(r'^user/',include(user_ex_urls)),    #加载 user_ex包下的urls文件配置
     url(r'^comments/', include(django_comments_urls)),
     url(r'^column/(?P<column_slug>[^/]+)/$', test_app_views.column_detail, name='column'),
     url(r'^article/(?P<pk>\d+)/(?P<article_slug>[^/]+)/$', test_app_views.article_detail, name='article'),

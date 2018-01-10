@@ -1,0 +1,21 @@
+{% extends "page_base.html" %}
+  
+{% block content-body %}
+    {#显示消息的页面#}
+    <div class="row">
+        <center><h4 style="line-height:300%;">{{message|safe}}</h4></center>
+    </div>
+{% endblock %}
+ 
+{% block script %}
+{# 页面调整控制 #}
+<script type="text/javascript" charset="utf-8">
+        {% if goto_page %}
+            $(function(){
+                window.setTimeout(function(){ 
+                    window.location = '{{goto_url}}';
+                },{{goto_time}});
+            });
+        {% endif %}
+</script>
+{% endblock %}

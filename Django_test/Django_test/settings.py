@@ -12,7 +12,9 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 """
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-import os
+import os,socket
+
+
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -23,10 +25,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '-vt#ukbkf^mlf=t%$nj@2lgw(i4-qr6b%aa74gu8#(e232t(2c'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# 如果是本地访问 就开发 调试，否则关闭
+if socket.gethostbyname(socket.gethostname())[:3]=='127':
+    DEBUG = TEMPLATE_DEBUG = True
+else:
+    DEBUG = TEMPLATE_DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -44,6 +49,7 @@ INSTALLED_APPS = (
     'test_app',
     'DjangoUeditor',
     'my_blog',
+    'user_ex',
 )
 SITE_ID = 1
 
@@ -154,6 +160,67 @@ STATICFILES_DIRS = (
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+#管理员邮箱
+ADMINS = (
+    ('mengde','16594562@qq.com'),
+)
+
+#非空链接，却发生404错误，发送通知MANAGERS
+SEND_BROKEN_LINK_EMAILS = True
+MANAGERS = ADMINS
+
+#Email设置 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST= 'smtp.qq.com'#QQ邮箱SMTP服务器(邮箱需要开通SMTP服务)
+EMAIL_PORT= 25         #QQ邮箱SMTP服务端口
+EMAIL_HOST_USER = 'caolinming@8dol.com'  #我的邮箱帐号
+EMAIL_HOST_PASSWORD = '******' #授权码
+EMAIL_SUBJECT_PREFIX = 'website' #为邮件标题的前缀,默认是'[django]'
+EMAIL_USE_TLS = True #开启安全链接
+DEFAULT_FROM_EMAIL = SERVER_EMAIL = EMAIL_HOST_USER #设置发件人
+
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': True,
+    'formatters': {#日志格式
+       'standard': {
+            'format': '%(asctime)s [%(threadName)s:%(thread)d] [%(name)s:%(lineno)d] [%(module)s:%(funcName)s] [%(levelname)s]- %(message)s'}
+    },
+    'filters': {#过滤器
+    },
+    'handlers': {#处理器
+        'null': {
+            'level': 'DEBUG',
+            'class': 'logging.NullHandler',
+        },
+        'debug': {#输出到文件
+            'level':'DEBUG',
+            'class':'logging.handlers.RotatingFileHandler',
+            'filename': os.path.join(BASE_DIR, "log",'debug.log'),#日志输出文件
+            'maxBytes':1024*1024*5, #文件大小
+            'backupCount': 2,#备份份数
+            'formatter':'standard',#使用哪种formatters日志格式
+        },
+        'console':{#输出到控制台
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'standard',
+        },
+    },
+    'loggers': {#logging管理器
+        'django': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+            'propagate': False
+        },
+        'django.request': {
+            'handlers': ['debug'],
+            'level': 'ERROR',
+            'propagate': True,
+        },
+    }
+}
 
 
 

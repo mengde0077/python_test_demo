@@ -1,0 +1,715 @@
+2018-01-09 09:43:39,571 [Thread-15:123145310715904] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /sblog/bloglist/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/caolinming/Desktop/qita/python_test/Django_test/my_blog/views.py", line 27, in blog_list
+    send_mail('subject', 'message', '16594562@qq.com', ['caolinming@8dol.com'],fail_silently=False)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/mail/__init__.py", line 62, in send_mail
+    return mail.send()
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/mail/message.py", line 303, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/mail/backends/smtp.py", line 107, in send_messages
+    sent = self._send(message)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/mail/backends/smtp.py", line 123, in _send
+    self.connection.sendmail(from_email, recipients, message.as_bytes(linesep='\r\n'))
+  File "/usr/local/Cellar/python/2.7.13/Frameworks/Python.framework/Versions/2.7/lib/python2.7/smtplib.py", line 736, in sendmail
+    raise SMTPSenderRefused(code, resp, from_addr)
+SMTPSenderRefused: (501, 'mail from address must be same as authorization user', u'16594562@qq.com')
+2018-01-09 09:54:31,184 [Thread-16:123145310715904] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /sblog/bloglist/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/caolinming/Desktop/qita/python_test/Django_test/my_blog/views.py", line 27, in blog_list
+    send_mail('subject', 'message', '16594562@qq.com', ['caolinming@8dol.com'],fail_silently=False)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/mail/__init__.py", line 62, in send_mail
+    return mail.send()
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/mail/message.py", line 303, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/mail/backends/smtp.py", line 107, in send_messages
+    sent = self._send(message)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/mail/backends/smtp.py", line 123, in _send
+    self.connection.sendmail(from_email, recipients, message.as_bytes(linesep='\r\n'))
+  File "/usr/local/Cellar/python/2.7.13/Frameworks/Python.framework/Versions/2.7/lib/python2.7/smtplib.py", line 736, in sendmail
+    raise SMTPSenderRefused(code, resp, from_addr)
+SMTPSenderRefused: (501, 'mail from address must be same as authorization user', u'16594562@qq.com')
+2018-01-09 10:04:35,238 [Thread-1:123145310715904] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /sblog/bloglist/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/caolinming/Desktop/qita/python_test/Django_test/my_blog/views.py", line 27, in blog_list
+    send_mail('subject', 'message', '16594562@qq.com', ['caolinming@8dol.com'],fail_silently=False)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/mail/__init__.py", line 62, in send_mail
+    return mail.send()
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/mail/message.py", line 303, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/mail/backends/smtp.py", line 107, in send_messages
+    sent = self._send(message)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/mail/backends/smtp.py", line 123, in _send
+    self.connection.sendmail(from_email, recipients, message.as_bytes(linesep='\r\n'))
+  File "/usr/local/Cellar/python/2.7.13/Frameworks/Python.framework/Versions/2.7/lib/python2.7/smtplib.py", line 736, in sendmail
+    raise SMTPSenderRefused(code, resp, from_addr)
+SMTPSenderRefused: (501, 'mail from address must be same as authorization user', u'16594562@qq.com')
+2018-01-10 02:41:27,107 [Thread-2:123145310715904] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /user/user_login
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/handlers/base.py", line 108, in get_response
+    response = middleware_method(request)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/middleware/common.py", line 74, in process_request
+    if (not urlresolvers.is_valid_path(request.path_info, urlconf) and
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 646, in is_valid_path
+    resolve(path, urlconf)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 521, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 365, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 401, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 395, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/usr/local/Cellar/python/2.7.13/Frameworks/Python.framework/Versions/2.7/lib/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "/Users/caolinming/Desktop/qita/python_test/Django_test/Django_test/urls.py", line 37, in <module>
+    url(r'^user/',include(user_ex.urls)),    #加载 user_ex包下的urls文件配置
+NameError: name 'user_ex' is not defined
+2018-01-10 02:41:29,967 [Thread-9:123145310715904] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /user/check_is_login
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/handlers/base.py", line 108, in get_response
+    response = middleware_method(request)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/middleware/common.py", line 74, in process_request
+    if (not urlresolvers.is_valid_path(request.path_info, urlconf) and
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 646, in is_valid_path
+    resolve(path, urlconf)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 521, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 365, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 401, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 395, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/usr/local/Cellar/python/2.7.13/Frameworks/Python.framework/Versions/2.7/lib/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "/Users/caolinming/Desktop/qita/python_test/Django_test/Django_test/urls.py", line 37, in <module>
+    url(r'^user/',include(user_ex.urls)),    #加载 user_ex包下的urls文件配置
+NameError: name 'user_ex' is not defined
+2018-01-10 02:41:37,465 [Thread-10:123145310715904] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /user/user_login
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/handlers/base.py", line 108, in get_response
+    response = middleware_method(request)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/middleware/common.py", line 74, in process_request
+    if (not urlresolvers.is_valid_path(request.path_info, urlconf) and
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 646, in is_valid_path
+    resolve(path, urlconf)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 521, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 365, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 401, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 395, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/usr/local/Cellar/python/2.7.13/Frameworks/Python.framework/Versions/2.7/lib/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "/Users/caolinming/Desktop/qita/python_test/Django_test/Django_test/urls.py", line 37, in <module>
+    url(r'^user/',include(user_ex.urls)),    #加载 user_ex包下的urls文件配置
+NameError: name 'user_ex' is not defined
+2018-01-10 02:41:59,959 [Thread-2:123145310715904] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /user/user_login
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/handlers/base.py", line 108, in get_response
+    response = middleware_method(request)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/middleware/common.py", line 74, in process_request
+    if (not urlresolvers.is_valid_path(request.path_info, urlconf) and
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 646, in is_valid_path
+    resolve(path, urlconf)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 521, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 365, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 401, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 395, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/usr/local/Cellar/python/2.7.13/Frameworks/Python.framework/Versions/2.7/lib/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "/Users/caolinming/Desktop/qita/python_test/Django_test/Django_test/urls.py", line 37, in <module>
+    url(r'^user/',include(user_ex.urls)),    #加载 user_ex包下的urls文件配置
+NameError: name 'user_ex' is not defined
+2018-01-10 03:22:49,516 [Thread-2:123145310715904] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /user/user_login
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/handlers/base.py", line 108, in get_response
+    response = middleware_method(request)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/middleware/common.py", line 74, in process_request
+    if (not urlresolvers.is_valid_path(request.path_info, urlconf) and
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 646, in is_valid_path
+    resolve(path, urlconf)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 521, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 367, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 367, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 239, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 246, in callback
+    self._callback = get_callable(self._callback_str)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/utils/lru_cache.py", line 101, in wrapper
+    result = user_function(*args, **kwds)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 105, in get_callable
+    mod = import_module(mod_name)
+  File "/usr/local/Cellar/python/2.7.13/Frameworks/Python.framework/Versions/2.7/lib/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "/Users/caolinming/Desktop/qita/python_test/Django_test/user_ex/views.py", line 9, in <module>
+    from helper.crypto import encrypt,decrypt             #加密解密
+ImportError: No module named crypto
+2018-01-10 03:50:01,454 [Thread-15:123145310715904] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /user/check_is_login
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/caolinming/Desktop/qita/python_test/Django_test/user_ex/views.py", line 34, in check_is_login
+    </li>''' % (username,active_state,reverse('user_logout'))#用reverse逆向解析user_logout得到网址
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 578, in reverse
+    return force_text(iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs)))
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 432, in _reverse_with_prefix
+    self._populate()
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 307, in _populate
+    for name in pattern.reverse_dict:
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 337, in reverse_dict
+    self._populate()
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 325, in _populate
+    lookups.appendlist(pattern.callback, (bits, p_pattern, pattern.default_args))
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 246, in callback
+    self._callback = get_callable(self._callback_str)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/utils/lru_cache.py", line 101, in wrapper
+    result = user_function(*args, **kwds)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 126, in get_callable
+    (lookup_view, mod_name))
+ViewDoesNotExist: Could not import 'user_ex.views.user_active'. View does not exist in module user_ex.views.
+2018-01-10 03:51:15,544 [Thread-23:123145310715904] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /user/check_is_login
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/caolinming/Desktop/qita/python_test/Django_test/user_ex/views.py", line 34, in check_is_login
+    </li>''' % (username,active_state,reverse('user_logout'))#用reverse逆向解析user_logout得到网址
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 578, in reverse
+    return force_text(iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs)))
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 432, in _reverse_with_prefix
+    self._populate()
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 307, in _populate
+    for name in pattern.reverse_dict:
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 337, in reverse_dict
+    self._populate()
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 325, in _populate
+    lookups.appendlist(pattern.callback, (bits, p_pattern, pattern.default_args))
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 246, in callback
+    self._callback = get_callable(self._callback_str)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/utils/lru_cache.py", line 101, in wrapper
+    result = user_function(*args, **kwds)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 126, in get_callable
+    (lookup_view, mod_name))
+ViewDoesNotExist: Could not import 'user_ex.views.user_active'. View does not exist in module user_ex.views.
+2018-01-10 03:54:25,769 [Thread-31:123145310715904] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /user/check_is_login
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/caolinming/Desktop/qita/python_test/Django_test/user_ex/views.py", line 34, in check_is_login
+    </li>''' % (username,active_state,reverse('user_logout'))#用reverse逆向解析user_logout得到网址
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 578, in reverse
+    return force_text(iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs)))
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 432, in _reverse_with_prefix
+    self._populate()
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 307, in _populate
+    for name in pattern.reverse_dict:
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 337, in reverse_dict
+    self._populate()
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 325, in _populate
+    lookups.appendlist(pattern.callback, (bits, p_pattern, pattern.default_args))
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 246, in callback
+    self._callback = get_callable(self._callback_str)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/utils/lru_cache.py", line 101, in wrapper
+    result = user_function(*args, **kwds)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 126, in get_callable
+    (lookup_view, mod_name))
+ViewDoesNotExist: Could not import 'user_ex.views.user_active'. View does not exist in module user_ex.views.
+2018-01-10 03:54:48,462 [Thread-39:123145310715904] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /user/check_is_login
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/caolinming/Desktop/qita/python_test/Django_test/user_ex/views.py", line 34, in check_is_login
+    </li>''' % (username,active_state,reverse('user_logout'))#用reverse逆向解析user_logout得到网址
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 578, in reverse
+    return force_text(iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs)))
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 432, in _reverse_with_prefix
+    self._populate()
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 307, in _populate
+    for name in pattern.reverse_dict:
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 337, in reverse_dict
+    self._populate()
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 325, in _populate
+    lookups.appendlist(pattern.callback, (bits, p_pattern, pattern.default_args))
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 246, in callback
+    self._callback = get_callable(self._callback_str)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/utils/lru_cache.py", line 101, in wrapper
+    result = user_function(*args, **kwds)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 126, in get_callable
+    (lookup_view, mod_name))
+ViewDoesNotExist: Could not import 'user_ex.views.user_active'. View does not exist in module user_ex.views.
+2018-01-10 03:55:26,565 [Thread-40:123145310715904] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /me
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/caolinming/Desktop/qita/python_test/Django_test/Django_test/views.py", line 28, in me
+    return render(request, 'me.html')
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/shortcuts.py", line 67, in render
+    template_name, context, request=request, using=using)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/loader.py", line 99, in render_to_string
+    return template.render(context, request)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/backends/django.py", line 74, in render
+    return self.template.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 210, in render
+    return self._render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 202, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/loader_tags.py", line 135, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 202, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/loader_tags.py", line 135, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 202, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/defaulttags.py", line 493, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 578, in reverse
+    return force_text(iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs)))
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 432, in _reverse_with_prefix
+    self._populate()
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 307, in _populate
+    for name in pattern.reverse_dict:
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 337, in reverse_dict
+    self._populate()
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 325, in _populate
+    lookups.appendlist(pattern.callback, (bits, p_pattern, pattern.default_args))
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 246, in callback
+    self._callback = get_callable(self._callback_str)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/utils/lru_cache.py", line 101, in wrapper
+    result = user_function(*args, **kwds)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 126, in get_callable
+    (lookup_view, mod_name))
+ViewDoesNotExist: Could not import 'user_ex.views.user_active'. View does not exist in module user_ex.views.
+2018-01-10 03:55:43,519 [Thread-52:123145310715904] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /me
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/caolinming/Desktop/qita/python_test/Django_test/Django_test/views.py", line 28, in me
+    return render(request, 'me.html')
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/shortcuts.py", line 67, in render
+    template_name, context, request=request, using=using)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/loader.py", line 99, in render_to_string
+    return template.render(context, request)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/backends/django.py", line 74, in render
+    return self.template.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 210, in render
+    return self._render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 202, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/loader_tags.py", line 135, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 202, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/loader_tags.py", line 135, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 202, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/defaulttags.py", line 493, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 578, in reverse
+    return force_text(iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs)))
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 432, in _reverse_with_prefix
+    self._populate()
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 307, in _populate
+    for name in pattern.reverse_dict:
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 337, in reverse_dict
+    self._populate()
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 325, in _populate
+    lookups.appendlist(pattern.callback, (bits, p_pattern, pattern.default_args))
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 246, in callback
+    self._callback = get_callable(self._callback_str)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/utils/lru_cache.py", line 101, in wrapper
+    result = user_function(*args, **kwds)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 126, in get_callable
+    (lookup_view, mod_name))
+ViewDoesNotExist: Could not import 'user_ex.views.user_active'. View does not exist in module user_ex.views.
+2018-01-10 05:39:38,417 [Thread-2:123145310715904] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /me
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/caolinming/Desktop/qita/python_test/Django_test/Django_test/views.py", line 28, in me
+    return render(request, 'me.html')
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/shortcuts.py", line 67, in render
+    template_name, context, request=request, using=using)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/loader.py", line 99, in render_to_string
+    return template.render(context, request)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/backends/django.py", line 74, in render
+    return self.template.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 210, in render
+    return self._render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 202, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/loader_tags.py", line 135, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 202, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/loader_tags.py", line 135, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 202, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/defaulttags.py", line 493, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 578, in reverse
+    return force_text(iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs)))
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 432, in _reverse_with_prefix
+    self._populate()
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 307, in _populate
+    for name in pattern.reverse_dict:
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 337, in reverse_dict
+    self._populate()
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 325, in _populate
+    lookups.appendlist(pattern.callback, (bits, p_pattern, pattern.default_args))
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 246, in callback
+    self._callback = get_callable(self._callback_str)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/utils/lru_cache.py", line 101, in wrapper
+    result = user_function(*args, **kwds)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 126, in get_callable
+    (lookup_view, mod_name))
+ViewDoesNotExist: Could not import 'user_ex.views.user_active'. View does not exist in module user_ex.views.
+2018-01-10 05:39:46,766 [Thread-2:123145310715904] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /me
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/caolinming/Desktop/qita/python_test/Django_test/Django_test/views.py", line 28, in me
+    return render(request, 'me.html')
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/shortcuts.py", line 67, in render
+    template_name, context, request=request, using=using)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/loader.py", line 99, in render_to_string
+    return template.render(context, request)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/backends/django.py", line 74, in render
+    return self.template.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 210, in render
+    return self._render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 202, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/loader_tags.py", line 135, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 202, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/loader_tags.py", line 135, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 202, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/defaulttags.py", line 493, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 578, in reverse
+    return force_text(iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs)))
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 432, in _reverse_with_prefix
+    self._populate()
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 307, in _populate
+    for name in pattern.reverse_dict:
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 337, in reverse_dict
+    self._populate()
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 325, in _populate
+    lookups.appendlist(pattern.callback, (bits, p_pattern, pattern.default_args))
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 246, in callback
+    self._callback = get_callable(self._callback_str)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/utils/lru_cache.py", line 101, in wrapper
+    result = user_function(*args, **kwds)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 126, in get_callable
+    (lookup_view, mod_name))
+ViewDoesNotExist: Could not import 'user_ex.views.user_active'. View does not exist in module user_ex.views.
+2018-01-10 05:45:43,182 [Thread-2:123145310715904] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/handlers/base.py", line 119, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 365, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 401, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 395, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/usr/local/Cellar/python/2.7.13/Frameworks/Python.framework/Versions/2.7/lib/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "/Users/caolinming/Desktop/qita/python_test/Django_test/Django_test/urls.py", line 22, in <module>
+    from user_ex import urls as user_ex_urls
+  File "/Users/caolinming/Desktop/qita/python_test/Django_test/user_ex/urls.py", line 7, in <module>
+    url(r'^me$', views.me, name='me'),
+AttributeError: 'module' object has no attribute 'me'
+2018-01-10 05:46:29,138 [Thread-2:123145310715904] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/handlers/base.py", line 119, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 365, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 401, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 395, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/usr/local/Cellar/python/2.7.13/Frameworks/Python.framework/Versions/2.7/lib/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "/Users/caolinming/Desktop/qita/python_test/Django_test/Django_test/urls.py", line 29, in <module>
+    url(r'^me$', views.me, name='me'),
+AttributeError: 'module' object has no attribute 'me'
+2018-01-10 05:48:25,146 [Thread-4:123145310715904] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/caolinming/Desktop/qita/python_test/Django_test/Django_test/views.py", line 18, in index
+    context_instance=RequestContext(request))
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/shortcuts.py", line 89, in render
+    using=using)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/loader.py", line 115, in render_to_string
+    template_name, context, context_instance, dirs, dictionary)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/engine.py", line 221, in render_to_string
+    return t.render(context_instance)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 210, in render
+    return self._render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 202, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/loader_tags.py", line 135, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 202, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/defaulttags.py", line 493, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 578, in reverse
+    return force_text(iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs)))
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 432, in _reverse_with_prefix
+    self._populate()
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 307, in _populate
+    for name in pattern.reverse_dict:
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 337, in reverse_dict
+    self._populate()
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 325, in _populate
+    lookups.appendlist(pattern.callback, (bits, p_pattern, pattern.default_args))
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 246, in callback
+    self._callback = get_callable(self._callback_str)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/utils/lru_cache.py", line 101, in wrapper
+    result = user_function(*args, **kwds)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 126, in get_callable
+    (lookup_view, mod_name))
+ViewDoesNotExist: Could not import 'user_ex.views.user_active'. View does not exist in module user_ex.views.
+2018-01-10 05:52:50,013 [Thread-2:123145310715904] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/caolinming/Desktop/qita/python_test/Django_test/Django_test/views.py", line 18, in index
+    context_instance=RequestContext(request))
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/shortcuts.py", line 89, in render
+    using=using)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/loader.py", line 115, in render_to_string
+    template_name, context, context_instance, dirs, dictionary)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/engine.py", line 221, in render_to_string
+    return t.render(context_instance)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 210, in render
+    return self._render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 202, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/loader_tags.py", line 135, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 202, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/defaulttags.py", line 493, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 578, in reverse
+    return force_text(iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs)))
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 432, in _reverse_with_prefix
+    self._populate()
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 307, in _populate
+    for name in pattern.reverse_dict:
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 337, in reverse_dict
+    self._populate()
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 325, in _populate
+    lookups.appendlist(pattern.callback, (bits, p_pattern, pattern.default_args))
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 246, in callback
+    self._callback = get_callable(self._callback_str)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/utils/lru_cache.py", line 101, in wrapper
+    result = user_function(*args, **kwds)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 126, in get_callable
+    (lookup_view, mod_name))
+ViewDoesNotExist: Could not import 'user_ex.views.user_active'. View does not exist in module user_ex.views.
+2018-01-10 05:55:14,958 [Thread-9:123145310715904] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /user/me
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/caolinming/Desktop/qita/python_test/Django_test/user_ex/views.py", line 15, in me
+    return render(request, 'me.html')
+NameError: global name 'render' is not defined

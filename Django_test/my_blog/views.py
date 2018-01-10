@@ -9,6 +9,13 @@ from django.http import Http404,HttpResponseRedirect,HttpResponse
 from django.template.context_processors import csrf
 from templatetags import gravatar
 # from django.views.decorators.csrf import csrf_exempt,csrf_protect
+from django.core.mail import send_mail #导入django发送邮件模块
+
+import logging
+import django.utils.log
+import logging.handlers
+logger = logging.getLogger('sourceDns.webdns.views')    #刚才在setting.py中配置的logger
+
 
 def blog_list(request):
     # 倒序获取
