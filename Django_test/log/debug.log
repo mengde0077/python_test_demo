@@ -713,3 +713,744 @@ Traceback (most recent call last):
   File "/Users/caolinming/Desktop/qita/python_test/Django_test/user_ex/views.py", line 15, in me
     return render(request, 'me.html')
 NameError: global name 'render' is not defined
+2018-01-12 01:18:30,265 [Thread-2:123145310715904] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /comments/post/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/utils/decorators.py", line 110, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/views/decorators/http.py", line 45, in inner
+    return func(request, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/django_contrib_comments-1.8.0-py2.7.egg/django_comments/views/comments.py", line 109, in post_comment
+    print 'form = ' + form
+TypeError: cannot concatenate 'str' and 'CommentForm' objects
+2018-01-12 01:19:41,638 [Thread-17:123145310715904] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /comments/post/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/utils/decorators.py", line 110, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/views/decorators/http.py", line 45, in inner
+    return func(request, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/django_contrib_comments-1.8.0-py2.7.egg/django_comments/views/comments.py", line 109, in post_comment
+    print 'form = ' + form
+TypeError: cannot concatenate 'str' and 'CommentForm' objects
+2018-01-12 01:50:57,493 [Thread-9:123145310715904] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /comments/post/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/utils/decorators.py", line 110, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/views/decorators/http.py", line 45, in inner
+    return func(request, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/django_contrib_comments-1.8.0-py2.7.egg/django_comments/views/comments.py", line 109, in post_comment
+    print 'form.data = ' + data
+TypeError: cannot concatenate 'str' and 'QueryDict' objects
+2018-01-12 03:42:07,388 [Thread-8:123145310715904] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /comments/post/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/utils/decorators.py", line 110, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/views/decorators/http.py", line 45, in inner
+    return func(request, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/django_contrib_comments-1.8.0-py2.7.egg/django_comments/views/comments.py", line 74, in post_comment
+    print  '调试 ctype = %s' % ctype
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xe8 in position 0: ordinal not in range(128)
+2018-01-12 05:28:36,318 [Thread-37:123145310715904] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /sblog/blog/8/commentshow/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/caolinming/Desktop/qita/python_test/Django_test/my_blog/views.py", line 83, in blog_show_comment
+    blog = Blog.objects.get(id=id)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/db/models/manager.py", line 127, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/db/models/query.py", line 334, in get
+    self.model._meta.object_name
+DoesNotExist: Blog matching query does not exist.
+2018-01-12 08:00:50,309 [Thread-27:123145310715904] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /comments/post/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/utils/decorators.py", line 110, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/views/decorators/http.py", line 45, in inner
+    return func(request, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/django_contrib_comments-1.8.0-py2.7.egg/django_comments/views/comments.py", line 75, in post_comment
+    print  '调试 object_pk = %s' % object_pk
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xe8 in position 0: ordinal not in range(128)
+2018-01-12 08:02:20,984 [Thread-2:123145310715904] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /comments/post/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/utils/decorators.py", line 110, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/views/decorators/http.py", line 45, in inner
+    return func(request, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/django_contrib_comments-1.8.0-py2.7.egg/django_comments/views/comments.py", line 75, in post_comment
+    print  '调试 ctype = %s' % ctype
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xe8 in position 0: ordinal not in range(128)
+2018-01-12 08:02:30,450 [Thread-9:123145310715904] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /comments/post/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/utils/decorators.py", line 110, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/views/decorators/http.py", line 45, in inner
+    return func(request, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/django_contrib_comments-1.8.0-py2.7.egg/django_comments/views/comments.py", line 75, in post_comment
+    print  '调试 ctype = %s' % ctype
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xe8 in position 0: ordinal not in range(128)
+2018-01-12 08:03:27,898 [Thread-8:123145310715904] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /comments/post/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/utils/decorators.py", line 110, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/views/decorators/http.py", line 45, in inner
+    return func(request, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/django_contrib_comments-1.8.0-py2.7.egg/django_comments/views/comments.py", line 75, in post_comment
+    print  '调试 ctype = %s' % data['ctype']
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/utils/datastructures.py", line 322, in __getitem__
+    raise MultiValueDictKeyError(repr(key))
+MultiValueDictKeyError: "'ctype'"
+2018-01-12 08:03:48,840 [Thread-8:123145310715904] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /comments/post/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/utils/decorators.py", line 110, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/views/decorators/http.py", line 45, in inner
+    return func(request, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/django_contrib_comments-1.8.0-py2.7.egg/django_comments/views/comments.py", line 75, in post_comment
+    print  '调试 ctype = %s' % data['content_type']
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xe8 in position 0: ordinal not in range(128)
+2018-01-12 08:12:36,734 [Thread-8:123145310715904] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /comments/post/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/utils/decorators.py", line 110, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/views/decorators/http.py", line 45, in inner
+    return func(request, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/django_contrib_comments-1.8.0-py2.7.egg/django_comments/views/comments.py", line 75, in post_comment
+    print  '调试 ctype = %s' % data.get("content_type")
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xe8 in position 0: ordinal not in range(128)
+2018-01-12 08:44:03,520 [Thread-8:123145310715904] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /comments/post/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/utils/decorators.py", line 110, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/views/decorators/http.py", line 45, in inner
+    return func(request, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/django_contrib_comments-1.8.0-py2.7.egg/django_comments/views/comments.py", line 75, in post_comment
+    print  '调试 ctype = %s' % data.get("content_type")
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xe8 in position 0: ordinal not in range(128)
+2018-01-12 08:44:30,721 [Thread-8:123145310715904] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /comments/post/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/utils/decorators.py", line 110, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/views/decorators/http.py", line 45, in inner
+    return func(request, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/django_contrib_comments-1.8.0-py2.7.egg/django_comments/views/comments.py", line 75, in post_comment
+    print  '调试 ctype = %s' % ctype
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xe8 in position 0: ordinal not in range(128)
+2018-01-12 08:46:22,200 [Thread-8:123145310715904] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /comments/post/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/utils/decorators.py", line 110, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/views/decorators/http.py", line 45, in inner
+    return func(request, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/django_contrib_comments-1.8.0-py2.7.egg/django_comments/views/comments.py", line 74, in post_comment
+    ctype = data.type("content_type")
+AttributeError: 'QueryDict' object has no attribute 'type'
+2018-01-12 08:53:02,622 [Thread-8:123145310715904] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /comments/post/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/utils/decorators.py", line 110, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/views/decorators/http.py", line 45, in inner
+    return func(request, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/django_contrib_comments-1.8.0-py2.7.egg/django_comments/views/comments.py", line 77, in post_comment
+    print  '调试 ctype = %s' % ctype
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xe8 in position 0: ordinal not in range(128)
+2018-01-12 09:27:06,650 [Thread-28:123145310715904] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /comments/post/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/utils/decorators.py", line 110, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/views/decorators/http.py", line 45, in inner
+    return func(request, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/django_contrib_comments-1.8.0-py2.7.egg/django_comments/views/comments.py", line 77, in post_comment
+    print  '调试 ctype = %s' % ctype
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xe8 in position 0: ordinal not in range(128)
+2018-01-12 09:33:46,477 [Thread-35:123145310715904] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /comments/post/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/utils/decorators.py", line 110, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/views/decorators/http.py", line 45, in inner
+    return func(request, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/django_contrib_comments-1.8.0-py2.7.egg/django_comments/views/comments.py", line 77, in post_comment
+    print  '调试 ctype = %s' % ctype
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xe8 in position 0: ordinal not in range(128)
+2018-01-18 01:30:09,995 [Thread-64:123145310715904] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /comments/post/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/utils/decorators.py", line 110, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/views/decorators/http.py", line 45, in inner
+    return func(request, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/django_contrib_comments-1.8.0-py2.7.egg/django_comments/views/comments.py", line 77, in post_comment
+    print  '调试 ctype = %s' % ctype
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xe8 in position 0: ordinal not in range(128)
+2018-01-18 02:52:00,323 [Thread-9:123145310715904] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /comments/post/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/utils/decorators.py", line 110, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/views/decorators/http.py", line 45, in inner
+    return func(request, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/django_contrib_comments-1.8.0-py2.7.egg/django_comments/views/comments.py", line 153, in post_comment
+    comment = form.get_comment_object(site_id=get_current_site(request).id)
+  File "/usr/local/lib/python2.7/site-packages/django_contrib_comments-1.8.0-py2.7.egg/django_comments/forms.py", line 118, in get_comment_object
+    raise ValueError("get_comment_object may only be called on valid forms")
+ValueError: get_comment_object may only be called on valid forms
+2018-01-18 02:52:47,716 [Thread-46:123145310715904] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /comments/post/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/utils/decorators.py", line 110, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/views/decorators/http.py", line 45, in inner
+    return func(request, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/django_contrib_comments-1.8.0-py2.7.egg/django_comments/views/comments.py", line 153, in post_comment
+    comment = form.get_comment_object(site_id=get_current_site(request).id)
+  File "/usr/local/lib/python2.7/site-packages/django_contrib_comments-1.8.0-py2.7.egg/django_comments/forms.py", line 118, in get_comment_object
+    raise ValueError("get_comment_object may only be called on valid forms")
+ValueError: get_comment_object may only be called on valid forms
+2018-01-18 03:02:45,429 [Thread-2:123145310715904] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /sblog/blog/6/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/handlers/base.py", line 119, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 365, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 401, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 395, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/usr/local/Cellar/python/2.7.13/Frameworks/Python.framework/Versions/2.7/lib/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "/Users/caolinming/Desktop/qita/python_test/Django_test/Django_test/urls.py", line 24, in <module>
+    from django_comments import urls as django_comments_urls
+  File "/usr/local/lib/python2.7/site-packages/django_contrib_comments-1.8.0-py2.7.egg/django_comments/urls.py", line 4, in <module>
+    from .views.comments import post_comment, comment_done
+  File "/usr/local/lib/python2.7/site-packages/django_contrib_comments-1.8.0-py2.7.egg/django_comments/views/comments.py", line 131
+    if !form.errors or preview:
+       ^
+SyntaxError: invalid syntax
+2018-01-18 03:03:39,983 [Thread-10:123145310715904] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /comments/post/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/utils/decorators.py", line 110, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/views/decorators/http.py", line 45, in inner
+    return func(request, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/django_contrib_comments-1.8.0-py2.7.egg/django_comments/views/comments.py", line 152, in post_comment
+    comment = form.get_comment_object(site_id=get_current_site(request).id)
+  File "/usr/local/lib/python2.7/site-packages/django_contrib_comments-1.8.0-py2.7.egg/django_comments/forms.py", line 118, in get_comment_object
+    raise ValueError("get_comment_object may only be called on valid forms")
+ValueError: get_comment_object may only be called on valid forms
+2018-01-18 03:15:19,285 [Thread-9:123145310715904] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /comments/post/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/utils/decorators.py", line 110, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/views/decorators/http.py", line 45, in inner
+    return func(request, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/django_contrib_comments-1.8.0-py2.7.egg/django_comments/views/comments.py", line 153, in post_comment
+    comment = form.get_comment_object(site_id=get_current_site(request).id)
+  File "/usr/local/lib/python2.7/site-packages/django_contrib_comments-1.8.0-py2.7.egg/django_comments/forms.py", line 118, in get_comment_object
+    raise ValueError("get_comment_object may only be called on valid forms")
+ValueError: get_comment_object may only be called on valid forms
+2018-01-18 03:18:53,658 [Thread-9:123145310715904] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /comments/post/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/utils/decorators.py", line 110, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/views/decorators/http.py", line 45, in inner
+    return func(request, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/django_contrib_comments-1.8.0-py2.7.egg/django_comments/views/comments.py", line 154, in post_comment
+    comment = form.get_comment_object(site_id=get_current_site(request).id)
+  File "/usr/local/lib/python2.7/site-packages/django_contrib_comments-1.8.0-py2.7.egg/django_comments/forms.py", line 118, in get_comment_object
+    raise ValueError("get_comment_object may only be called on valid forms")
+ValueError: get_comment_object may only be called on valid forms
+2018-01-18 03:20:07,098 [Thread-9:123145310715904] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /comments/post/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/utils/decorators.py", line 110, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/views/decorators/http.py", line 45, in inner
+    return func(request, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/django_contrib_comments-1.8.0-py2.7.egg/django_comments/views/comments.py", line 155, in post_comment
+    comment = form.get_comment_object(site_id=get_current_site(request).id)
+  File "/usr/local/lib/python2.7/site-packages/django_contrib_comments-1.8.0-py2.7.egg/django_comments/forms.py", line 118, in get_comment_object
+    raise ValueError("get_comment_object may only be called on valid forms")
+ValueError: get_comment_object may only be called on valid forms
+2018-01-18 03:21:08,177 [Thread-9:123145310715904] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /comments/post/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/utils/decorators.py", line 110, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/views/decorators/http.py", line 45, in inner
+    return func(request, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/django_contrib_comments-1.8.0-py2.7.egg/django_comments/views/comments.py", line 155, in post_comment
+    comment = form.get_comment_object(site_id=get_current_site(request).id)
+  File "/usr/local/lib/python2.7/site-packages/django_contrib_comments-1.8.0-py2.7.egg/django_comments/forms.py", line 118, in get_comment_object
+    raise ValueError("get_comment_object may only be called on valid forms")
+ValueError: get_comment_object may only be called on valid forms
+2018-01-18 05:36:40,763 [Thread-45:123145310715904] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /comments/post/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/utils/decorators.py", line 110, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/views/decorators/http.py", line 45, in inner
+    return func(request, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/django_contrib_comments-1.8.0-py2.7.egg/django_comments/views/comments.py", line 155, in post_comment
+    comment = form.get_comment_object(site_id=get_current_site(request).id)
+  File "/usr/local/lib/python2.7/site-packages/django_contrib_comments-1.8.0-py2.7.egg/django_comments/forms.py", line 118, in get_comment_object
+    raise ValueError("get_comment_object may only be called on valid forms")
+ValueError: get_comment_object may only be called on valid forms
+2018-01-18 06:19:29,282 [Thread-9:123145310715904] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /user/user_info
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/caolinming/Desktop/qita/python_test/Django_test/user_ex/views.py", line 30, in user_info
+    data['all_talk_about'] = comments_count.all_talk_about(user.id)
+  File "/Users/caolinming/Desktop/qita/python_test/Django_test/helper/comments_count.py", line 89, in all_talk_about
+    blogs=list(Blog.objects.raw(sql))   #raw_query对象是一个生成器
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/db/models/query.py", line 1284, in __iter__
+    query = iter(self.query)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/db/models/sql/query.py", line 80, in __iter__
+    self._execute_query()
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/db/models/sql/query.py", line 98, in _execute_query
+    self.cursor.execute(self.sql, self.params)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/db/backends/utils.py", line 79, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/db/utils.py", line 98, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/db/backends/mysql/base.py", line 124, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python2.7/site-packages/mysqlclient-1.3.12-py2.7-macosx-10.11-x86_64.egg/MySQLdb/cursors.py", line 250, in execute
+    self.errorhandler(self, exc, value)
+  File "/usr/local/lib/python2.7/site-packages/mysqlclient-1.3.12-py2.7-macosx-10.11-x86_64.egg/MySQLdb/connections.py", line 50, in defaulterrorhandler
+    raise errorvalue
+ProgrammingError: (1146, "Table 'djangotest.blog_blog' doesn't exist")
+2018-01-18 06:21:11,092 [Thread-10:123145310715904] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /user/user_info
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/caolinming/Desktop/qita/python_test/Django_test/user_ex/views.py", line 30, in user_info
+    data['all_talk_about'] = comments_count.all_talk_about(user.id)
+  File "/Users/caolinming/Desktop/qita/python_test/Django_test/helper/comments_count.py", line 89, in all_talk_about
+    blogs=list(Blog.objects.raw(sql))   #raw_query对象是一个生成器
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/db/models/query.py", line 1284, in __iter__
+    query = iter(self.query)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/db/models/sql/query.py", line 80, in __iter__
+    self._execute_query()
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/db/models/sql/query.py", line 98, in _execute_query
+    self.cursor.execute(self.sql, self.params)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/db/backends/utils.py", line 79, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/db/utils.py", line 98, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/db/backends/mysql/base.py", line 124, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python2.7/site-packages/mysqlclient-1.3.12-py2.7-macosx-10.11-x86_64.egg/MySQLdb/cursors.py", line 250, in execute
+    self.errorhandler(self, exc, value)
+  File "/usr/local/lib/python2.7/site-packages/mysqlclient-1.3.12-py2.7-macosx-10.11-x86_64.egg/MySQLdb/connections.py", line 50, in defaulterrorhandler
+    raise errorvalue
+ProgrammingError: (1146, "Table 'djangotest.blog_blog' doesn't exist")
+2018-01-18 07:40:22,342 [Thread-2:123145310715904] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /comments/post/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/utils/decorators.py", line 110, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/views/decorators/http.py", line 45, in inner
+    return func(request, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/django_contrib_comments-1.8.0-py2.7.egg/django_comments/views/comments.py", line 120, in post_comment
+    form = django_comments.get_form()(target, data=data)
+  File "/usr/local/lib/python2.7/site-packages/django_contrib_comments-1.8.0-py2.7.egg/django_comments/__init__.py", line 57, in get_form
+    from django_comments.forms import CommentForm
+  File "/usr/local/lib/python2.7/site-packages/django_contrib_comments-1.8.0-py2.7.egg/django_comments/forms.py", line 108
+SyntaxError: Non-ASCII character '\xe8' in file /usr/local/lib/python2.7/site-packages/django_contrib_comments-1.8.0-py2.7.egg/django_comments/forms.py on line 108, but no encoding declared; see http://python.org/dev/peps/pep-0263/ for details
+2018-01-18 09:29:17,941 [Thread-2:123145310715904] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /comments/post/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/utils/decorators.py", line 110, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/views/decorators/http.py", line 45, in inner
+    return func(request, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/django_contrib_comments-1.8.0-py2.7.egg/django_comments/views/comments.py", line 120, in post_comment
+    form = django_comments.get_form()(target, data=data)
+  File "/usr/local/lib/python2.7/site-packages/django_contrib_comments-1.8.0-py2.7.egg/django_comments/__init__.py", line 58, in get_form
+    from django_comments.forms import CommentForm
+  File "/usr/local/lib/python2.7/site-packages/django_contrib_comments-1.8.0-py2.7.egg/django_comments/forms.py", line 35
+SyntaxError: Non-ASCII character '\xe8' in file /usr/local/lib/python2.7/site-packages/django_contrib_comments-1.8.0-py2.7.egg/django_comments/forms.py on line 35, but no encoding declared; see http://python.org/dev/peps/pep-0263/ for details
+2018-01-18 09:30:42,587 [Thread-3:123145310715904] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /comments/post/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/utils/decorators.py", line 110, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/views/decorators/http.py", line 45, in inner
+    return func(request, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/django_contrib_comments-1.8.0-py2.7.egg/django_comments/views/comments.py", line 120, in post_comment
+    form = django_comments.get_form()(target, data=data)
+  File "/usr/local/lib/python2.7/site-packages/django_contrib_comments-1.8.0-py2.7.egg/django_comments/__init__.py", line 58, in get_form
+    from django_comments.forms import CommentForm
+  File "/usr/local/lib/python2.7/site-packages/django_contrib_comments-1.8.0-py2.7.egg/django_comments/forms.py", line 35
+SyntaxError: Non-ASCII character '\xe8' in file /usr/local/lib/python2.7/site-packages/django_contrib_comments-1.8.0-py2.7.egg/django_comments/forms.py on line 35, but no encoding declared; see http://python.org/dev/peps/pep-0263/ for details
+2018-01-18 09:31:07,184 [Thread-4:123145310715904] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /comments/post/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/utils/decorators.py", line 110, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/views/decorators/http.py", line 45, in inner
+    return func(request, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/django_contrib_comments-1.8.0-py2.7.egg/django_comments/views/comments.py", line 120, in post_comment
+    form = django_comments.get_form()(target, data=data)
+  File "/usr/local/lib/python2.7/site-packages/django_contrib_comments-1.8.0-py2.7.egg/django_comments/__init__.py", line 58, in get_form
+    from django_comments.forms import CommentForm
+  File "/usr/local/lib/python2.7/site-packages/django_contrib_comments-1.8.0-py2.7.egg/django_comments/forms.py", line 35
+SyntaxError: Non-ASCII character '\xe8' in file /usr/local/lib/python2.7/site-packages/django_contrib_comments-1.8.0-py2.7.egg/django_comments/forms.py on line 35, but no encoding declared; see http://python.org/dev/peps/pep-0263/ for details
+2018-01-18 09:31:11,131 [Thread-5:123145310715904] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /sblog/blog/6/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/caolinming/Desktop/qita/python_test/Django_test/my_blog/views.py", line 73, in blog_show
+    context_instance=RequestContext(request))
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/shortcuts.py", line 89, in render
+    using=using)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/loader.py", line 115, in render_to_string
+    template_name, context, context_instance, dirs, dictionary)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/engine.py", line 221, in render_to_string
+    return t.render(context_instance)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 210, in render
+    return self._render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 202, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/loader_tags.py", line 135, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 202, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/loader_tags.py", line 135, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 202, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/loader_tags.py", line 135, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 202, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/defaulttags.py", line 329, in render
+    return nodelist.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/defaulttags.py", line 329, in render
+    return nodelist.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/site-packages/django_contrib_comments-1.8.0-py2.7.egg/django_comments/templatetags/comments.py", line 168, in render
+    context[self.as_varname] = self.get_form(context)
+  File "/usr/local/lib/python2.7/site-packages/django_contrib_comments-1.8.0-py2.7.egg/django_comments/templatetags/comments.py", line 152, in get_form
+    return django_comments.get_form()(obj)
+  File "/usr/local/lib/python2.7/site-packages/django_contrib_comments-1.8.0-py2.7.egg/django_comments/__init__.py", line 58, in get_form
+    from django_comments.forms import CommentForm
+  File "/usr/local/lib/python2.7/site-packages/django_contrib_comments-1.8.0-py2.7.egg/django_comments/forms.py", line 35
+SyntaxError: Non-ASCII character '\xe8' in file /usr/local/lib/python2.7/site-packages/django_contrib_comments-1.8.0-py2.7.egg/django_comments/forms.py on line 35, but no encoding declared; see http://python.org/dev/peps/pep-0263/ for details
+2018-01-18 09:32:11,369 [Thread-6:123145310715904] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /sblog/blog/6/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/caolinming/Desktop/qita/python_test/Django_test/my_blog/views.py", line 73, in blog_show
+    context_instance=RequestContext(request))
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/shortcuts.py", line 89, in render
+    using=using)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/loader.py", line 115, in render_to_string
+    template_name, context, context_instance, dirs, dictionary)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/engine.py", line 221, in render_to_string
+    return t.render(context_instance)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 210, in render
+    return self._render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 202, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/loader_tags.py", line 135, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 202, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/loader_tags.py", line 135, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 202, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/loader_tags.py", line 135, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 202, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/defaulttags.py", line 329, in render
+    return nodelist.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/defaulttags.py", line 329, in render
+    return nodelist.render(context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/site-packages/django_contrib_comments-1.8.0-py2.7.egg/django_comments/templatetags/comments.py", line 168, in render
+    context[self.as_varname] = self.get_form(context)
+  File "/usr/local/lib/python2.7/site-packages/django_contrib_comments-1.8.0-py2.7.egg/django_comments/templatetags/comments.py", line 152, in get_form
+    return django_comments.get_form()(obj)
+  File "/usr/local/lib/python2.7/site-packages/django_contrib_comments-1.8.0-py2.7.egg/django_comments/__init__.py", line 58, in get_form
+    from django_comments.forms import CommentForm
+  File "/usr/local/lib/python2.7/site-packages/django_contrib_comments-1.8.0-py2.7.egg/django_comments/forms.py", line 35
+SyntaxError: Non-ASCII character '\xe8' in file /usr/local/lib/python2.7/site-packages/django_contrib_comments-1.8.0-py2.7.egg/django_comments/forms.py on line 35, but no encoding declared; see http://python.org/dev/peps/pep-0263/ for details
+2018-01-23 05:52:18,886 [Thread-28:123145310715904] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /user/login
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/caolinming/Desktop/qita/python_test/Django_test/user_ex/views.py", line 21, in login
+    return render(request,'login.html',data)
+NameError: global name 'data' is not defined
+2018-01-23 05:52:30,903 [Thread-2:123145310715904] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /user/login
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/caolinming/Desktop/qita/python_test/Django_test/user_ex/views.py", line 21, in login
+    return render(request,'login.html')
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/shortcuts.py", line 67, in render
+    template_name, context, request=request, using=using)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/loader.py", line 98, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/loader.py", line 46, in get_template
+    raise TemplateDoesNotExist(template_name)
+TemplateDoesNotExist: login.html
+2018-01-23 06:22:48,325 [Thread-9:123145310715904] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /user/login
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+TypeError: login() takes exactly 2 arguments (1 given)
+2018-01-23 06:22:57,703 [Thread-16:123145310715904] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /user/login
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+TypeError: login() takes exactly 2 arguments (1 given)
+2018-01-23 06:23:06,610 [Thread-2:123145310715904] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /user/login
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+TypeError: login() takes exactly 2 arguments (1 given)
+2018-01-23 06:23:16,223 [Thread-16:123145310715904] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /user/login
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+TypeError: login() takes exactly 2 arguments (1 given)
+2018-01-23 07:01:48,018 [Thread-2:123145310715904] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /user/user_info
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/handlers/base.py", line 151, in get_response
+    % (callback.__module__, view_name))
+ValueError: The view user_ex.views.user_info didn't return an HttpResponse object. It returned None instead.
+2018-01-23 07:02:19,548 [Thread-2:123145310715904] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /user/user_info
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/handlers/base.py", line 108, in get_response
+    response = middleware_method(request)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/middleware/common.py", line 74, in process_request
+    if (not urlresolvers.is_valid_path(request.path_info, urlconf) and
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 646, in is_valid_path
+    resolve(path, urlconf)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 521, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 365, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 401, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/urlresolvers.py", line 395, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/usr/local/Cellar/python/2.7.13/Frameworks/Python.framework/Versions/2.7/lib/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "/Users/caolinming/Desktop/qita/python_test/Django_test/Django_test/urls.py", line 22, in <module>
+    from user_ex import urls as user_ex_urls
+  File "/Users/caolinming/Desktop/qita/python_test/Django_test/user_ex/urls.py", line 3, in <module>
+    from user_ex import views
+  File "/Users/caolinming/Desktop/qita/python_test/Django_test/user_ex/views.py", line 38
+    return render_to_response('user/index.html',data)
+    ^
+IndentationError: unexpected indent
+2018-01-23 07:02:33,229 [Thread-8:123145310715904] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /user/user_info
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/caolinming/Desktop/qita/python_test/Django_test/user_ex/views.py", line 37, in user_info
+    data['all_talk_about'] = comments_count.all_talk_about(user.id)
+  File "/Users/caolinming/Desktop/qita/python_test/Django_test/helper/comments_count.py", line 89, in all_talk_about
+    blogs=list(Blog.objects.raw(sql))   #raw_query对象是一个生成器
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/db/models/query.py", line 1284, in __iter__
+    query = iter(self.query)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/db/models/sql/query.py", line 80, in __iter__
+    self._execute_query()
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/db/models/sql/query.py", line 98, in _execute_query
+    self.cursor.execute(self.sql, self.params)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/db/backends/utils.py", line 79, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/db/utils.py", line 98, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/db/backends/mysql/base.py", line 124, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python2.7/site-packages/mysqlclient-1.3.12-py2.7-macosx-10.11-x86_64.egg/MySQLdb/cursors.py", line 250, in execute
+    self.errorhandler(self, exc, value)
+  File "/usr/local/lib/python2.7/site-packages/mysqlclient-1.3.12-py2.7-macosx-10.11-x86_64.egg/MySQLdb/connections.py", line 50, in defaulterrorhandler
+    raise errorvalue
+OperationalError: (1054, "Unknown column 'None' in 'where clause'")
+2018-01-23 07:02:35,096 [Thread-9:123145314922496] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /user/user_info
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/caolinming/Desktop/qita/python_test/Django_test/user_ex/views.py", line 37, in user_info
+    data['all_talk_about'] = comments_count.all_talk_about(user.id)
+  File "/Users/caolinming/Desktop/qita/python_test/Django_test/helper/comments_count.py", line 89, in all_talk_about
+    blogs=list(Blog.objects.raw(sql))   #raw_query对象是一个生成器
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/db/models/query.py", line 1284, in __iter__
+    query = iter(self.query)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/db/models/sql/query.py", line 80, in __iter__
+    self._execute_query()
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/db/models/sql/query.py", line 98, in _execute_query
+    self.cursor.execute(self.sql, self.params)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/db/backends/utils.py", line 79, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/db/utils.py", line 98, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/db/backends/mysql/base.py", line 124, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python2.7/site-packages/mysqlclient-1.3.12-py2.7-macosx-10.11-x86_64.egg/MySQLdb/cursors.py", line 250, in execute
+    self.errorhandler(self, exc, value)
+  File "/usr/local/lib/python2.7/site-packages/mysqlclient-1.3.12-py2.7-macosx-10.11-x86_64.egg/MySQLdb/connections.py", line 50, in defaulterrorhandler
+    raise errorvalue
+OperationalError: (1054, "Unknown column 'None' in 'where clause'")
+2018-01-23 07:11:34,205 [Thread-9:123145310715904] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /user/user_login
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/views/decorators/csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/caolinming/Desktop/qita/python_test/Django_test/user_ex/views.py", line 116, in user_login
+    data['message'] = u'您尚未登录，请先登录' #提示消息
+NameError: global name 'data' is not defined
+2018-01-23 07:46:18,761 [Thread-2:123145310715904] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /user/user_info
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/caolinming/Desktop/qita/python_test/Django_test/user_ex/views.py", line 44, in user_info
+    return render_to_response('user/login.html',data)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/shortcuts.py", line 39, in render_to_response
+    content = loader.render_to_string(template_name, context, using=using)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/loader.py", line 98, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/usr/local/lib/python2.7/site-packages/Django-1.8.17-py2.7.egg/django/template/loader.py", line 46, in get_template
+    raise TemplateDoesNotExist(template_name)
+TemplateDoesNotExist: user/login.html

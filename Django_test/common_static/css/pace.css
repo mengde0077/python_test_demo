@@ -11,3 +11,20 @@
 .pace-inactive {
   display: none;
 }
+
+/*评论*/
+.blog_comment{
+    border-bottom: 1px solid #ddd;
+}
+.blog_comment .comment_title{
+    margin-top: 0.5em;
+}
+.blog_comment .comment_content{
+    padding: 0.5em;
+    border-radius: 6px;
+    background-color: #efefef;
+}
+/*回复*/
+.blog_comment .comment_reply{
+    text-indent: 0.5em;
+}

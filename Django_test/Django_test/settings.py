@@ -166,16 +166,16 @@ ADMINS = (
 )
 
 #非空链接，却发生404错误，发送通知MANAGERS
-SEND_BROKEN_LINK_EMAILS = True
+SEND_BROKEN_LINK_EMAILS = False
 MANAGERS = ADMINS
 
-#Email设置 
+#Email设置
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST= 'smtp.qq.com'#QQ邮箱SMTP服务器(邮箱需要开通SMTP服务)
+EMAIL_HOST= 'smtp.163.com' # 邮箱SMTP服务器(邮箱需要开通SMTP服务)
 EMAIL_PORT= 25         #QQ邮箱SMTP服务端口
-EMAIL_HOST_USER = 'caolinming@8dol.com'  #我的邮箱帐号
-EMAIL_HOST_PASSWORD = '******' #授权码
-EMAIL_SUBJECT_PREFIX = 'website' #为邮件标题的前缀,默认是'[django]'
+EMAIL_HOST_USER = 'lin16594562@163.com'  #发送邮件的邮箱
+EMAIL_HOST_PASSWORD = 'mengde007' #在邮箱中设置的客户端授权密码
+EMAIL_SUBJECT_PREFIX = u'mengde' #为邮件标题的前缀,默认是'[django]'
 EMAIL_USE_TLS = True #开启安全链接
 DEFAULT_FROM_EMAIL = SERVER_EMAIL = EMAIL_HOST_USER #设置发件人
 

@@ -10,12 +10,12 @@
 {% block script %}
 {# 页面调整控制 #}
 <script type="text/javascript" charset="utf-8">
-        {% if goto_page %}
-            $(function(){
-                window.setTimeout(function(){ 
-                    window.location = '{{goto_url}}';
-                },{{goto_time}});
-            });
-        {% endif %}
+    {% if goto_page %}
+        $(function(){
+            window.setTimeout(function(){ 
+                window.location = '{{goto_url}}';
+            },{{goto_time}});
+        });
+    {% endif %}
 </script>
 {% endblock %}

@@ -1,0 +1,124 @@
+{% extends "page_base.html" %}
+
+{% block login %}
+<div class="col-md-6">
+	<ul id="user_part" class="nav navbar-nav navbar-right"></ul>
+</div>
+{% endblock %}
+
+
+{% block content-body %}
+    <div class="row">
+        <div class="col-md-5">
+            <div class="panel panel-default">
+                <div class="panel-heading">我的信息</div>
+                <div class="panel-body">
+                    <div class="">
+                        <h4 class="user-name">{% if user.first_name %}{{user.first_name}}{%else%}{{user.username}}{%endif%}</h4>
+                        <span><a href="/user/nickname_change">修改昵称</a></span>
+                        <span><a href="/user/password_change">修改密码</a></span>
+                        <span><a href="/user/password_lost">忘记密码</a></span>   
+                    </div>
+ 
+                    <ul class="user-info">
+                        <li>
+                            <span>注册邮箱：</span>
+                            <span>{{user.username}}</span>
+                        </li>
+                        <li>
+                            <span>注册日期：</span>
+                            <span>{{user.date_joined|date:"Y-m-d H:i"}}</span>
+                        </li>
+                        <li>
+                            <span>最近登录：</span>
+                            <span>{{user.last_login|date:"Y-m-d H:i"}}</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+ 
+        <div class="col-md-7">
+            <div class="panel panel-default">
+                <div class="panel-heading">我的足迹</div>
+                <div class="panel-body">
+                    <div class="">
+                        <h4 class="user-name">信息统计</h4>
+                        <span>最近参与讨论的文章：
+                            {% if last_talk_about %}
+                                <a href="/sblog/blog/{{last_talk_about.id}}" target="_blank">{{last_talk_about.caption}}</a>
+                            {% else %}
+                                无
+                            {% endif %}
+                        </span>
+                    </div>
+ 
+                    <ul class="user-info">
+                        <li>您共评论了<b>{{comments_count}}</b>次</li>
+                        <li>您共回复了<b>{{replies_count}}</b>次</li>
+                        <li>有<b>{{replyed_count}}</b>次，其他人回复了您</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+ 
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">我的发言</div>
+                <div class="panel-body">
+                    {% for blog in all_talk_about %}
+                        <div class="sp-item">
+                            <h5 class="sp-title"><a href="/sblog/blog/{{blog.id}}" target="_blank">{{blog.caption}}</a></h5>
+                            <ul class="sp-detail">
+                                {% for comment in blog.comments %}
+                                    <li>{{comment.submit_date|date:"Y-m-d H:i"}} 
+                                    {% if comment.root_id %}回复 <span class="label label-primary">{{comment.reply_name}}</span>{%else%}评论{%endif%}：
+                                    {{comment.comment}}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    {% endfor %}
+                    <p class="text-right">查看更多博文发表您的宝贵意见吧~ <a href="/sblog/bloglist/" target="_blank">看博客&gt;&gt;</a></p>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+    <style type="text/css">
+        .user-info{
+            margin-top: 1em;
+        }
+        .sp-item{
+            margin-bottom: 2em;
+            border-bottom: 1px #ccc dashed;
+        }
+        .sp-item li{
+            text-indent: 1em;
+            padding-bottom: 0.3em;
+        }
+    </style>
+{% endblock %}
+
+
+
+
+{% block script %}
+//检查登录状态
+<script type="text/javascript" charset="utf-8">
+$.ajax({
+    type:"GET",
+    url:"{% url 'check_is_login' %}",
+    cache:false,
+    dataType:'text',
+    success:function(result){
+        $("#user_part").html(result);
+    },
+    error:function(XMLHttpRequest, textStatus, errorThrown){
+        //alert(textStatus);
+        $("#user_part").html('<li><a href="#" data-toggle="modal" data-target="#LoginModal">登录</a></li><li><a href="#" data-toggle="modal" data-target="#RegModal">注册</a></li>');
+    }
+});
+
+</script>
+{% endblock %}

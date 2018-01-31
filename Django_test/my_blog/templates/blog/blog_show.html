@@ -51,7 +51,21 @@
                 <p class="comment_title">
                     #{{ comment.submit_date|date:"Y-m-d H:i"}} @ {{ comment.user_name }}：
                 </p>
-                <p class="comment_content">{{ comment.comment }}</p>
+                <p class="comment_content"
+                    root='{{comment.id}}'
+                    role='{{comment.id}}'
+                    base='{{comment.user_name}}'>
+                    {{ comment.comment }}
+                </p>
+                <ul class="comment_reply">
+                    {% for reply in comment.replies %}
+                        <li root='{{reply.root_id}}'
+                            role='{{reply.id}}'
+                            base='{{reply.user_name}}'>
+                            {{reply.user_name}} 回复 {{reply.reply_name}} ({{ reply.submit_date|date:"Y-m-d H:i"}})：{{ reply.comment }}
+                        </li>
+                    {% endfor %}
+                </ul>                
             </div>            
         {% empty %}
             <span>暂无评论</span>
@@ -61,9 +75,11 @@
 
 
 <div class="panel panel-default">
-<h4>我有话说</h4>
-{% get_comment_form for blog as blog_form %}
 <div id="comment_form">
+<h4>我有话说</h4>
+{% if user.is_superuser %}
+    {% if user.is_active %}
+{% get_comment_form for blog as blog_form %}
 <form id="comment_form" 
       class="form-horizontal" 
       action="{% comment_form_target %}" 
@@ -128,6 +144,13 @@
         </div>
     </div>
  </form>
+    {% else %}
+        您尚未激活，请先激活您的账户才能评论。(避免垃圾评论)
+    {% endif %}
+{% else %}
+    您尚未登录，请先登录才能评论。(可以通过邮件得到评论提醒)
+{% endif %}
+
 </div>
 </div>  
 
@@ -147,6 +170,48 @@
         下一篇：没有了
     {% endif %}
 </p>
+</div>
+
+
+
+
+<div id="reply_form" style="display:none;text-indent:0;">
+    <!--这里需要get_comment_form 这句话，若前面评论部分你有定义就结合一下修改-->
+    {% get_comment_form for blog as blog_form %} 
+    <form action="#" id="reply_update_form">
+        {% csrf_token %}
+        {{ blog_form.object_pk }}
+        {{ blog_form.content_type }}
+        {{ blog_form.timestamp }}
+        {{ blog_form.site }}
+        {{ blog_form.submit_date }}
+        {{ blog_form.security_hash }}
+        <input type="hidden" name="next" value="{%url 'detailblog' blog.id%}"/>
+        <input id="reply_to" type="hidden" name="reply_to" value="0" />
+        <input id="root_id" type="hidden" name="root_id" value="0" />
+        <input id="reply_name" type="hidden" name="reply_name" value="">
+ 
+        <div class="row">
+            <div class="col-md-12">
+                <textarea class="input-xlarge comment_text" id="id_comment_reply" name="comment" placeholder="请输入回复内容"></textarea>
+ 
+                {# 防垃圾评论 #}
+                <p style="display:none;">
+                    <label for="id_honeypot">如果你在该字段中输入任何内容，你的评论就会被视为垃圾回复。</label>
+                    <input type="text" name="honeypot" id="id_honeypot_reply">
+                </p>
+                <!--如果你在该字段中输入任何内容，你的评论就会被视为垃圾评论-->
+                <!-- <input type="text" style="display:none;" id="id_honeypot_reply" name="honeypot"> -->
+            </div>
+        </div>
+ 
+        <div class="row">
+              <div class="form-actions comment_button">
+                <input class="btn btn-info" id="submit_reply" type="submit" name="submit" value="回复"/>
+                <input class="btn" id="reset_btn" type="reset" name="submit" value="清空"/>
+              </div>
+        </div>
+    </form>
 </div>
 
 {% endblock %}
@@ -191,10 +256,6 @@
  
             $("#id_timestamp").value=event.timeStamp;
 
-            function csrfSafeMethod(method) {
-                // these HTTP methods do not require CSRF protection
-                return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
-            }
             $.ajax({
                 beforeSend: function(xhr, settings) {
                     if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
@@ -215,6 +276,85 @@
             });
             return false;
             });
-        });
+
+
+//绑定回复提交事件
+$('#reply_update_form').submit(function() {
+    if ($("#id_honeypot_reply").val().length!=0) {alert("Stop!垃圾评论");return false;};
+    if ($("#id_comment_reply").val().length==0) {alert("Error:请输入您的回复内容");$("#id_comment").focus();return false;};
+ 
+    // $("#id_timestamp").val(event.timeStamp);
+ 
+    $.ajax({
+        // beforeSend: function(xhr, settings) {
+        //     if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+        //         xhr.setRequestHeader("X-CSRFToken", csrftoken);
+        //     }
+        // },
+        type: "POST",
+        data: $('#reply_update_form').serialize(),
+        url: "{% comment_form_target %}",
+        cache: false,
+        dataType: "json",
+        success: function(json, textStatus) {
+            if(json['success']){
+                window.location.reload();
+            }else{
+                if(json['code']==501){
+                    alert('您尚未登录，请先登录才能评论。');
+                }else if(json['code']==502){
+                    alert('您尚未激活，请先激活您的账户才能评论。');
+                }else{
+                    alert('评论出错，请刷新重试\n'+json['message']);
+                }
+            }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            alert("评论出错\n请检查是否登录了或者刷新试试\n" + errorThrown);
+        }
+    });
+    return false;
+});
+ 
+//绑定回复按钮的鼠标经过事件
+$(".comment_content,.comment_reply li").each(function(){
+    $(this).hover(function(){
+        $(this).append("<span class='reply_button'> <a href='javascript:void(0);' onclick='reply_click(this);'>回复</a></span>");
+    },function(){
+        $(this).children(".reply_button").remove();
+    });
+});
+
+});
+
+
+ 
+//回复按钮点击触发的方法
+function reply_click(obj){
+    //获取回复按钮对应的评论或回复（DOM转成jQuery对象）
+    var comment=obj.parentElement.parentElement;
+    var $c=$(comment);
+    //获取相关信息
+    var root=$c.attr("root");
+    var role=$c.attr("role");
+    var base=$c.attr("base");
+ 
+    //显示回复面板
+    $("#reply_form").hide();
+    $c.after($("#reply_form"));
+    $("#reply_form").slideDown(200);
+ 
+    //设置回复表单相关值
+    $("#reply_to").val(role);
+    $("#root_id").val(root);
+    $("#reply_name").val(base);
+    return false;
+}
+
+function csrfSafeMethod(method) {
+    // these HTTP methods do not require CSRF protection
+    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+}
+
 </script> 
 {% endblock %}
